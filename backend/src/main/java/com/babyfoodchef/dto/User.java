@@ -1,4 +1,4 @@
-package com.babyfoodagora.dto;
+package com.babyfoodchef.dto;
 
 import lombok.Data;
 

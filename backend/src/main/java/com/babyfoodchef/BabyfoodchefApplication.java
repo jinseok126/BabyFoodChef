@@ -1,13 +1,13 @@
-package com.babyfoodagora;
+package com.babyfoodchef;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BabyfoodagoraApplication {
+public class BabyfoodchefApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BabyfoodagoraApplication.class, args);
+        SpringApplication.run(BabyfoodchefApplication.class, args);
     }
 
 }

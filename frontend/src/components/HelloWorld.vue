@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1 v-for="user in users" :key="user.id">{{user.name}} : {{user.phoneNumber}}</h1>
+    <h2>데헷</h2>
   </div>
 </template>
 

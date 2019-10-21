@@ -1,14 +1,14 @@
-package com.babyfoodagora.controller;
+package com.babyfoodchef.controller;
 
-import com.babyfoodagora.dto.Test;
-import com.babyfoodagora.dto.User;
+
+import com.babyfoodchef.dto.User;
+import com.babyfoodchef.dto.Test;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
 import java.util.*;
 
 @RestController

@@ -1,10 +1,10 @@
-package com.babyfoodagora;
+package com.babyfoodchef;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BabyfoodagoraApplicationTests {
+class BabyfoodchefApplicationTests {
 
     @Test
     void contextLoads() {
