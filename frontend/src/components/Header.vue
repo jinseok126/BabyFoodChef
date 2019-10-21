@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <Logo/>
+  <div class="menu" style="background-color: #fbceb1">
+    <div class="logo">
+        <button><img src="static/images/Logo.jpg" /></button>
+    </div>
     <b-navbar toggleable="lg" type="dark" variant="info">
 
       <b-navbar-toggle target="nav_collapse"/>
@@ -39,15 +41,21 @@
 </template>
 
 <script>
-import Logo from './Logo'
-
 export default {
   name: 'Header',
   components: {
-    Logo
   },
   data () {
     return {}
   }
 }
 </script>
+<style scoped>
+.logo {
+  margin-bottom: 10px
+}
+.menu {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+</style>
