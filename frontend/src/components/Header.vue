@@ -1,9 +1,14 @@
 <template>
-  <div class="menu" style="background-color: #fbceb1">
+  <div style="background-color: #fdd696">
     <div class="logo">
-        <button><img src="static/images/Logo.jpg" /></button>
+      <b-navbar variant="faded" type="center">
+        <b-navbar-brand  href="#">
+          <img src="static/images/logo.png" alt="Logo">
+        </b-navbar-brand>
+      </b-navbar>
     </div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+
+    <b-navbar toggleable="lg" type="dark" variant="dark">
 
       <b-navbar-toggle target="nav_collapse"/>
 
@@ -52,10 +57,7 @@ export default {
 </script>
 <style scoped>
 .logo {
-  margin-bottom: 10px
-}
-.menu {
-  margin-left: 30px;
-  margin-right: 30px;
+  display: inline-block; /*가운데 정렬*/
+  float: none;
 }
 </style>
