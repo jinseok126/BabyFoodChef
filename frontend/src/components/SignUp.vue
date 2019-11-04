@@ -19,6 +19,7 @@
           required
           placeholder=""
         ></b-form-input>
+        {{msg1}}
       </b-form-group>
        <b-form-group id="password" label="비밀번호 확인:" label-for="input-3">
        <b-form-input
@@ -28,15 +29,13 @@
          required
          placeholder=""
        ></b-form-input>
-       <h7 v-if="User.password===''"></h7>
-       <h7 v-else-if="User.password===password2">비밀번호 일치</h7>
-       <h7 v-else>비밀번호가 일치하지 않습니다.</h7>
+       {{msg2}}
        </b-form-group>
 
-      <b-form-group id="nickname" label="닉네임:" label-for="input-4">
+      <b-form-group id="nickName" label="닉네임:" label-for="input-4">
         <b-form-input
           id="input-4"
-          v-model="User.nickname"
+          v-model="User.nickName"
           required
           placeholder=""
         ></b-form-input>
@@ -52,7 +51,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-button @click="onSubmit" variant="primary">Submit</b-button>
+      <b-button @click="signUp" variant="info">회원 가입</b-button>
     </b-form>
   </div>
 </template>
@@ -63,15 +62,49 @@ export default {
       User: {
         id: '',
         password: '',
-        nickname: '',
+        nickName: '',
         email: ''
       },
-      password2: ''
+      password2: '',
+      check: false
     }
   },
   methods: {
-    onSubmit () {
-      console.log(this.User)
+    signUp () {
+      let check = false
+      if (this.User.password.length >= 6) {
+        if (this.User.password === this.password2) {
+          check = true
+        }
+      }
+      if (check) {
+        console.log(this.User)
+        this.$http.post('user/signUp', this.User).then()
+      } else {
+        alert('실패')
+      }
+    }
+  },
+  computed: {
+    msg1 () {
+      if (this.User.password === '') {
+        return ''
+      } else if (this.User.password.length < 6) {
+        return '6글자 이상 입력하세요.'
+      } else {
+        return ''
+      }
+    },
+    msg2 () {
+      if (this.password2 === '') {
+        return ''
+      } else if (this.password2.length < 6) {
+        return '6글자 이상 입력하세요.'
+      } else if (this.password2 !== this.User.password) {
+        return '비밀번호가 일치하지 않습니다'
+      } else {
+        return '비밀번호와 일치합니다.'
+      }
     }
   }
 }
