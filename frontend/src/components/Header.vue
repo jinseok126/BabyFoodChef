@@ -1,8 +1,8 @@
 <template>
-  <div style="background-color: #fdd696">
+  <div>
     <div class="logo">
       <b-navbar variant="faded" type="center">
-        <b-navbar-brand  href="#">
+        <b-navbar-brand  href="/">
           <img src="static/images/logo.png" alt="Logo">
         </b-navbar-brand>
       </b-navbar>
@@ -26,13 +26,8 @@
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
-          <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2" placeholder="아이디"></b-form-input>
-            <b-form-input size="sm" class="mr-sm-2" placeholder="비밀번호"></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit">로그인</b-button>
-          </b-nav-form>
-
-          <b-nav-item to="#">회원가입</b-nav-item>
+          <b-nav-item to="#">로그인</b-nav-item>
+          <b-nav-item to="signup">회원가입</b-nav-item>
 
           <b-nav-item-dropdown text="정보찾기" right>
             <b-dropdown-item href="#">아이디 찾기</b-dropdown-item>
