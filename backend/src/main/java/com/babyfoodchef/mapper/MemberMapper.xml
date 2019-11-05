@@ -5,9 +5,7 @@
 <mapper namespace="com.babyfoodchef.mapper.MemberMapper">
     <insert id="insert" useGeneratedKeys="true" keyProperty="no">
     INSERT Member (id, password, nickName, email)
-    VALUES (#{id}, #{password}, #{nickName}, #{email})
+    VALUES (#{id}, hex(aes_encrypt(#{password}, "dundung")), #{nickName}, #{email})
     </insert>
-    <delete id="deleteAll">
-    DELETE FROM Member
-    </delete>
+
 </mapper>

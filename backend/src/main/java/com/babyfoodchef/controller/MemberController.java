@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 public class MemberController {
     @Autowired
-    MemberMapper memberMapper;
+    MemberService memberService;
 
     @PostMapping("/signUp")
     public void insert(@RequestBody MemberDto member, ModelMap map) {
-        System.out.println(member);
-        memberMapper.insert(member);
+        memberService.insert(member);
     }
 }
