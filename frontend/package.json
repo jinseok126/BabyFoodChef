@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "BabyFoodAgora",
+  "description": "BabyFoodChef",
   "author": "DunDung",
   "private": true,
   "scripts": {
