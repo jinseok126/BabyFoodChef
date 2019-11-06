@@ -14,7 +14,7 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
-    @PostMapping("/signUp")
+    @PostMapping("/register")
     public void insert(@RequestBody MemberDto member, ModelMap map) {
         memberService.insert(member);
     }

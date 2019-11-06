@@ -1,13 +1,13 @@
 <template>
   <div class="form">
     <b-card bg-variant="light">
-   <b-form-group
-     label-cols-lg="4"
-     label="회원 가입"
-     label-size="lg"
-     label-class="font-weight-bold pt-5"
-     class="mb-0"
-   >
+      <b-form-group
+      label-cols-lg="4"
+      label="회원 가입"
+      label-size="lg"
+      label-class="font-weight-bold pt-5"
+      class="mb-0"
+      >
      <b-form-group
        label-cols-sm="3"
        label="아이디:"
@@ -53,7 +53,7 @@
      >
      <b-form-input id="email" v-model="User.email" type="email"></b-form-input>
      </b-form-group>
-     <b-button class="button" @click="signUp" variant="info">회원 가입</b-button>
+     <b-button class="button" @click="userRegister" variant="info">회원 가입</b-button>
    </b-form-group>
   </b-card>
   </div>
@@ -68,12 +68,11 @@ export default {
         nickName: '',
         email: ''
       },
-      password2: '',
-      check: false
+      password2: ''
     }
   },
   methods: {
-    signUp () {
+    userRegister () {
       let check = false
       if (this.User.password.length >= 6) {
         if (this.User.password === this.password2) {
@@ -82,7 +81,11 @@ export default {
       }
       if (check) {
         console.log(this.User)
-        this.$http.post('user/signUp', this.User).then()
+        this.$http.post('user/register', this.User).then(() => {
+          this.$router.push({
+            path: '/'
+          })
+        })
       } else {
         alert('실패')
       }
