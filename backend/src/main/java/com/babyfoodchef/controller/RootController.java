@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class RootController implements ErrorController {
-    @GetMapping("/error")
+    @GetMapping({"/","/error"})
     public String getUsers(){
         return "index";
     }
