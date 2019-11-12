@@ -1,4 +1,3 @@
-
 package com.babyfoodchef.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;

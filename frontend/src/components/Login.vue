@@ -14,6 +14,7 @@
         <b-form-input v-model="password" size="sm" placeholder="비밀번호를 입력해주세요."></b-form-input>
       </b-col>
     </b-row>
+    <b-button @click="loginBtn({id, password})">LOGIN</b-button>
   </b-container>
 </template>
 <script>
@@ -25,6 +26,9 @@ export default {
     }
   },
   methods: {
+    loginBtn (loginObj) {
+      console.log(loginObj)
+    }
   }
 }
 </script>

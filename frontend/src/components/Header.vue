@@ -60,12 +60,12 @@ body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,f
      body,input,textarea,select,button,table{font-family:"Noto Sana KR",sans-serif;font-size:13px;line-height:1.5;letter-spacing:-1px;direction:ltr}
 
      /*header*/
-     #header{height:175px;background:url(../../static/images/top_bg.jpg) repeat-x}
+     #header{height:175px;background:url("/static/images/top_bg.jpg") repeat-x}
      .container{width:1200px;margin:0 auto}
      .top_menu{text-align:right}
      .top_menu>a{display:inline-block;padding:9px 10px 18px 10px;transition:color 0.3s ease;font-size:15px}
      .top_menu>a:hover{color:#fff}
-     #header h1{width:183px;height:118px;background:url(../../static/images/cook_logo.jpg) no-repeat;text-indent:-9999px}
+     #header h1{width:183px;height:118px;background:url("/static/images/cook_logo.jpg") no-repeat;text-indent:-9999px}
      #header h1>a{display:block;height:100%;}
 
      /*gnb*/
