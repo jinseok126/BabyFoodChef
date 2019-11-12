@@ -4,7 +4,7 @@
           <header id="header">
               <div class="container">
                   <div class="top_menu">
-                      <router-link to="/">로그인</router-link>
+                      <router-link to="login">로그인</router-link>
                       <router-link to="register">회원가입</router-link>
                       <a href="#">정보 찾기</a>
                   </div>
