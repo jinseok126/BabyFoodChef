@@ -1,11 +1,12 @@
 package com.babyfoodchef.controller;
 
+import com.babyfoodchef.dto.LoginObjDto;
 import com.babyfoodchef.dto.MemberDto;
-import com.babyfoodchef.mapper.MemberMapper;
 import com.babyfoodchef.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/user")
@@ -15,7 +16,13 @@ public class MemberController {
     MemberService memberService;
 
     @PostMapping("/register")
-    public void insert(@RequestBody MemberDto member, ModelMap map) {
+    public void insert(@RequestBody MemberDto member) {
         memberService.insert(member);
+    }
+
+    @PostMapping("/login")
+    public void login(@RequestBody LoginObjDto loginObj, HttpServletResponse response) {
+        MemberDto member = memberService.findByIdAndPw(loginObj);
+        System.out.println(member);
     }
 }

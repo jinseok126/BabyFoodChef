@@ -1,5 +1,6 @@
 package com.babyfoodchef.dao;
 
+import com.babyfoodchef.dto.LoginObjDto;
 import com.babyfoodchef.dto.MemberDto;
 import com.babyfoodchef.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,5 +14,10 @@ public class MemberDaoImpl implements MemberDao{
     @Override
     public void insert(MemberDto memberDto) {
         memberMapper.insert(memberDto);
+    }
+
+    @Override
+    public MemberDto findByIdAndPw(LoginObjDto loginObj) {
+        return memberMapper.findByIdAndPw(loginObj);
     }
 }

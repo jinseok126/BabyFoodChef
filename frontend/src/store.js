@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 // import jwtDecode from 'jwt-decode'
 
 Vue.use(Vuex)
@@ -14,7 +15,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    login (state, payload) {
+    login1 (state, payload) {
       localStorage.set('accessToken', payload)
       state.accessToken = payload
     },
@@ -24,8 +25,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    login (payload) {
-      this.$http.post('user/login', payload).then(() => {})
+    login ({dispatch}, loginObj) {
+      console.log(loginObj)
+      axios.post('user/login', loginObj).then(res => {})
     }
   }
 })

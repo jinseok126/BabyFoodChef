@@ -7,5 +7,10 @@
     INSERT Member (id, password, nickName, email)
     VALUES (#{id}, hex(aes_encrypt(#{password}, "dundung")), #{nickName}, #{email})
     </insert>
+    <select id="findByIdAndPw" resultType="MemberDto">
+        SELECT * FROM Member
+        WHERE id = #{id}
+    </select>
+
 
 </mapper>
