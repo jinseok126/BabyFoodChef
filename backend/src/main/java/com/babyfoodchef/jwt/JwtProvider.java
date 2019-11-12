@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.annotation.PostConstruct;
 
+import com.babyfoodchef.dto.MemberDto;
+import com.babyfoodchef.dto.TokenDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +30,34 @@ public class JwtProvider {
     @PostConstruct
     protected void init() {
         secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
+    }
+
+    public TokenDto createToken(MemberDto memberDto) {
+        Claims claims = Jwts.claims().setSubject(memberDto.getId());
+        claims.put("nickName", memberDto.getNickName());
+
+        Date now = new Date();
+        String accessToken = Jwts.builder()
+                .setHeaderParam("typ", "JWT")
+                .setClaims(claims) // 데이터
+                .setIssuedAt(now) //발행 일자
+                .setExpiration(new Date(now.getTime()+accessTokenValidMilisecond)) //유효 시간
+                .signWith(SignatureAlgorithm.HS256, secretKey) //사인키
+                .compact();
+
+        String refreshToken = Jwts.builder()
+                .setHeaderParam("typ", "JWT")
+                .setClaims(claims) // 데이터
+                .setIssuedAt(now) //발행 일자
+                .setExpiration(new Date(now.getTime()+refreshTokenValidMilisecond)) //유효 시간
+                .signWith(SignatureAlgorithm.HS256, secretKey) //사인키
+                .compact();
+
+        TokenDto tokenDto = new TokenDto();
+        tokenDto.setAccessToken(accessToken);
+        tokenDto.setRefreshToken(refreshToken);
+
+        return tokenDto;
     }
 
 }

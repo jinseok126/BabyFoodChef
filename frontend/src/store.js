@@ -26,8 +26,9 @@ export default new Vuex.Store({
   },
   actions: {
     login ({dispatch}, loginObj) {
-      console.log(loginObj)
-      axios.post('user/login', loginObj).then(res => {})
+      axios.post('user/login', loginObj).then(res => {
+        console.log(res)
+      })
     }
   }
 })

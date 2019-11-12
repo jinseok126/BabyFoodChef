@@ -9,5 +9,6 @@ public class MemberDto {
     private String password;
     private String nickName;
     private String email;
+    private String token;
 
 }
