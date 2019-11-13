@@ -30,8 +30,15 @@ public class MemberController {
         MemberDto member = memberService.findByIdAndPw(loginObj);
         if (member==null) return;
         TokenDto tokenDto = jwtService.createTokenDto(member);
-        response.addHeader("Authorization", tokenDto.getAccessToken());
+        response.addHeader("Token", tokenDto.getAccessToken());
         member.setToken(tokenDto.getRefreshToken());
         memberService.update(member);
+    }
+    @GetMapping("/findById/{id}")
+    public void sendMemberInfo(@PathVariable String id, HttpServletResponse response){
+        //헤더에 닉네임을 보냄
+        //나중에 보낼게 더 있으면 토큰에다가 추가해서 보내기.
+        MemberDto member = memberService.findById(id);
+        response.addHeader("NickName", member.getNickName());
     }
 }

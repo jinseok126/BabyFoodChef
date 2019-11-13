@@ -5,6 +5,7 @@ import com.babyfoodchef.dto.MemberDto;
 
 public interface MemberDao {
     void insert(MemberDto memberDto);
+    MemberDto findById(String id);
     MemberDto findByIdAndPw(LoginObjDto loginObj);
     void update(MemberDto memberDto);
 }

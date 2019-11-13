@@ -19,6 +19,10 @@
         token = #{token}
         WHERE id = #{id}
     </update>
+    <select id="findById" resultType="MemberDto">
+        SELECT * FROM Member
+        WHERE id = #{id}
+    </select>
 
 
 </mapper>

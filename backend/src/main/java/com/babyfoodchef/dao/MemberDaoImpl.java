@@ -25,4 +25,9 @@ public class MemberDaoImpl implements MemberDao{
     public void update(MemberDto memberDto) {
         memberMapper.update(memberDto);
     }
+
+    @Override
+    public MemberDto findById(String id) {
+        return memberMapper.findById(id);
+    }
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-// import jwtDecode from 'jwt-decode'
+import jwtDecode from 'jwt-decode'
 
 Vue.use(Vuex)
 
@@ -28,16 +28,30 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    login ({dispatch}, loginObj) {
+    login ({dispatch, commit}, loginObj) {
       axios.post('member/login', loginObj).then(res => {
-        let token = res.headers.authorization
-        console.log(token)
-        if (token == null) {
-          console.log('로그인실패')
+        let token = res.headers.token
+        if (token === null) {
+          commit('loginError')
         } else {
           localStorage.setItem('accessToken', token)
+          dispatch('getMemberInfo')
         }
       })
+    },
+    getMemberInfo ({ commit }) {
+      let token = localStorage.getItem('accessToken')
+      if (token !== null) {
+        let decodeToken = jwtDecode(token)
+        axios
+          .get('member/findById/' + decodeToken.sub)
+          .then(response => {
+            let userInfo = {
+              nickName: response.headers.nickname
+            }
+            commit('loginSuccess', userInfo)
+          })
+      }
     }
   }
 })
