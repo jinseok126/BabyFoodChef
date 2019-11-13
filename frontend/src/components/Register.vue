@@ -81,7 +81,7 @@ export default {
       }
       if (check) {
         console.log(this.User)
-        this.$http.post('user/register', this.User).then(() => {
+        this.$http.post('member/register', this.User).then(() => {
           this.$router.push({
             path: '/'
           })

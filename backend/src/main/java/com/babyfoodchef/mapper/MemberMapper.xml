@@ -4,13 +4,21 @@
 
 <mapper namespace="com.babyfoodchef.mapper.MemberMapper">
     <insert id="insert" useGeneratedKeys="true" keyProperty="no">
-    INSERT Member (id, password, nickName, email)
-    VALUES (#{id}, hex(aes_encrypt(#{password}, "dundung")), #{nickName}, #{email})
+        INSERT Member (id, password, nickName, email)
+        VALUES (#{id}, hex(aes_encrypt(#{password}, "dundung")), #{nickName}, #{email})
     </insert>
     <select id="findByIdAndPw" resultType="MemberDto">
         SELECT * FROM Member
-        WHERE id = #{id}
+        WHERE id = #{id} AND #{password} =
+        (SELECT CAST(AES_DECRYPT(UNHEX(password), 'dundung')
+        AS CHAR(200)) FROM Member WHERE id=#{id})
     </select>
+    <update id="update">
+        UPDATE Member SET
+        nickName = #{nickName},
+        token = #{token}
+        WHERE id = #{id}
+    </update>
 
 
 </mapper>

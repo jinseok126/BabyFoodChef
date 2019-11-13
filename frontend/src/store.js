@@ -7,27 +7,36 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    // accessToken: localStorage.get('accessToken')
-  },
-  getter: {
-    getToken (state) {
-      return state.accessToken
-    }
+    userInfo: null,
+    isLogin: false,
+    isLoginError: false
   },
   mutations: {
-    login1 (state, payload) {
-      localStorage.set('accessToken', payload)
-      state.accessToken = payload
+    loginSuccess (state, payload) {
+      state.isLogin = true
+      state.isLoginError = false
+      state.userInfo = payload
+    },
+    loginError (state) {
+      state.isLogin = false
+      state.isLoginError = true
     },
     logout (state) {
-      localStorage.removeItem('accessToken')
-      state.accessToken = null
+      state.isLogin = false
+      state.isLoginError = false
+      state.userInfo = null
     }
   },
   actions: {
     login ({dispatch}, loginObj) {
-      axios.post('user/login', loginObj).then(res => {
-        console.log(res)
+      axios.post('member/login', loginObj).then(res => {
+        let token = res.headers.authorization
+        console.log(token)
+        if (token == null) {
+          console.log('로그인실패')
+        } else {
+          localStorage.setItem('accessToken', token)
+        }
       })
     }
   }

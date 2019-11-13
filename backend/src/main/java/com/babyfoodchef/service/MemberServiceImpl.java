@@ -20,4 +20,9 @@ public class MemberServiceImpl implements MemberService {
     public MemberDto findByIdAndPw(LoginObjDto loginObj) {
         return memberDao.findByIdAndPw(loginObj);
     }
+
+    @Override
+    public void update(MemberDto memberDto) {
+        memberDao.update(memberDto);
+    }
 }

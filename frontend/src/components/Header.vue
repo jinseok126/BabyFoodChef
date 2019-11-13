@@ -8,7 +8,7 @@
                       <router-link to="register">회원가입</router-link>
                       <a href="#">정보 찾기</a>
                   </div>
-                  <h1><a href="#">이유식 요리사</a></h1>
+                  <h1><router-link to="/">이유식 요리사</router-link></h1>
               </div>
           </header>
           <main>

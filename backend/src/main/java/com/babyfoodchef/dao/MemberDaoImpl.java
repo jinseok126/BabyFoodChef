@@ -20,4 +20,9 @@ public class MemberDaoImpl implements MemberDao{
     public MemberDto findByIdAndPw(LoginObjDto loginObj) {
         return memberMapper.findByIdAndPw(loginObj);
     }
+
+    @Override
+    public void update(MemberDto memberDto) {
+        memberMapper.update(memberDto);
+    }
 }
