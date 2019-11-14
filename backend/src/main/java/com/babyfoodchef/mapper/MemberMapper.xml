@@ -23,6 +23,14 @@
         SELECT * FROM Member
         WHERE id = #{id}
     </select>
+    <select id="findByEmail" resultType="MemberDto">
+        SELECT * FROM Member
+        WHERE email = #{email}
+    </select>
+    <select id="findByIdAndEmail" resultType="MemberDto">
+        SELECT * FROM Member
+        WHERE id = #{id} AND email = #{email}
+    </select>
 
 
 </mapper>

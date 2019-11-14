@@ -33,14 +33,12 @@ export default new Vuex.Store({
     login ({dispatch, commit}, loginObj) {
       axios.post('member/login', loginObj).then(res => {
         let token = res.headers.token
-        if (token === null) {
+        if (token === undefined) {
           commit('loginError')
         } else {
           localStorage.setItem('accessToken', token)
           dispatch('getMemberInfo')
-          router.push({
-            path: '/'
-          })
+          router.push('/', () => {})
         }
       })
     },
@@ -69,7 +67,7 @@ export default new Vuex.Store({
       router.push('/', () => {})
     },
     checkToken ({ dispatch }) {
-      axios.get('member/validateToken').then((result) => {
+      axios.get('token/validateToken').then((result) => {
         if (result.headers.tokenvalid === 'expired') {
           dispatch('logout')
         }

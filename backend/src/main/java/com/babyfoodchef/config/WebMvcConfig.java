@@ -15,6 +15,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
     //검사할 경로 설정
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(jwtInterceptor()).addPathPatterns("/member/validateToken");
+        registry.addInterceptor(jwtInterceptor()).addPathPatterns("/token/validateToken");
     }
 }

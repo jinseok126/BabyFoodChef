@@ -8,7 +8,6 @@ import com.babyfoodchef.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
@@ -42,9 +41,11 @@ public class MemberController {
         MemberDto member = memberService.findById(id);
         response.addHeader("NickName", member.getNickName());
     }
-
-    //토큰 검증 WebMvcConfig에 의해 JwtInterceptor로 간다.
-    @GetMapping("/validateToken")
-    public void validateToken(){
+    //return으로 vue에 전달하기 테스트해보기, 객체로 뷰에 전달하기 테스트
+    @GetMapping("/findByEmail/{email}")
+    public String findByEmail(@PathVariable String email, HttpServletResponse response){
+        MemberDto member = memberService.findByEmail(email);
+        return member.getEmail();
     }
+
 }

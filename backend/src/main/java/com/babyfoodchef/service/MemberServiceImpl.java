@@ -30,4 +30,14 @@ public class MemberServiceImpl implements MemberService {
     public MemberDto findById(String id) {
         return memberDao.findById(id);
     }
+
+    @Override
+    public MemberDto findByEmail(String email) {
+        return memberDao.findByEmail(email);
+    }
+
+    @Override
+    public MemberDto findByIdAndEmail(String id, String email) {
+        return memberDao.findByIdAndEmail(id, email);
+    }
 }

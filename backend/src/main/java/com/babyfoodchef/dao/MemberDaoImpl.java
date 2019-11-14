@@ -30,4 +30,14 @@ public class MemberDaoImpl implements MemberDao{
     public MemberDto findById(String id) {
         return memberMapper.findById(id);
     }
+
+    @Override
+    public MemberDto findByEmail(String email) {
+        return memberMapper.findByEmail(email);
+    }
+
+    @Override
+    public MemberDto findByIdAndEmail(String id, String email) {
+        return memberMapper.findByIdAndEmail(id, email);
+    }
 }

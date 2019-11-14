@@ -1,6 +1,12 @@
 <template>
   <div>
-    <b-alert show variant="primary" style="width: 40rem">Primary Alert</b-alert>
+    <b-alert
+    variant="danger"
+    style="width: 40rem"
+    :show='isLoginError'
+    >
+    아이디와 비밀번호를 확인하세요.
+    </b-alert>
     <b-card
     title="LOGIN"
     style="max-width: 40rem;"
@@ -27,7 +33,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   data () {
@@ -35,6 +41,9 @@ export default {
       id: '',
       password: ''
     }
+  },
+  computed: {
+    ...mapState(['isLoginError'])
   },
   methods: {
     ...mapActions(['login'])

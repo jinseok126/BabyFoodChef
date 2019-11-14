@@ -59,6 +59,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -81,10 +82,8 @@ export default {
       }
       if (check) {
         console.log(this.User)
-        this.$http.post('member/register', this.User).then(() => {
-          this.$router.push({
-            path: '/'
-          })
+        axios.post('member/register', this.User).then(() => {
+          this.$router.push('/', () => {})
         })
       } else {
         alert('실패')
