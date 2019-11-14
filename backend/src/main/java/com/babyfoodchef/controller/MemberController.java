@@ -8,6 +8,7 @@ import com.babyfoodchef.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
@@ -40,5 +41,10 @@ public class MemberController {
         //나중에 보낼게 더 있으면 토큰에다가 추가해서 보내기.
         MemberDto member = memberService.findById(id);
         response.addHeader("NickName", member.getNickName());
+    }
+
+    //토큰 검증 WebMvcConfig에 의해 JwtInterceptor로 간다.
+    @GetMapping("/validateToken")
+    public void validateToken(){
     }
 }

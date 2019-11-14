@@ -24,8 +24,9 @@ public class JwtProvider {
 
     @Value("spring.jwt.secret")
     private String secretKey;
-    private long accessTokenValidMilisecond = 1000L * 1 * 1; // 1시간만 토큰 유효
-    private long refreshTokenValidMilisecond = 1000L * 60 * 60; // 1시간만 토큰 유효
+    // 1000L * 60 * 60 => 1시간
+    private long accessTokenValidMilisecond = 1000L * 60 * 60;
+    private long refreshTokenValidMilisecond = 1000L * 60 * 60;
 
     @PostConstruct
     protected void init() {
@@ -58,6 +59,28 @@ public class JwtProvider {
         tokenDto.setRefreshToken(refreshToken);
 
         return tokenDto;
+    }
+
+    public String validateToken(String token) {
+        String msg = "";
+
+        if(token == null) {
+            msg = "not token";
+        } else {
+            try {
+                Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
+                if(!claims.getBody().getExpiration().before(new Date())) {
+                    msg = "success";
+                }
+            } catch (ExpiredJwtException e) {
+                msg = "expiredTokenDate";	// 토큰 만료
+            } catch (SignatureException e) {
+                msg = "wrongSign";			// 토큰의 서명 검증이 위조되거나 문제가 생긴 경우
+            } catch (Exception e) {
+                msg = "error";
+            }
+        }
+        return msg;
     }
 
 }

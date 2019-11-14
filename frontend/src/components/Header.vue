@@ -5,9 +5,10 @@
               <div class="container">
                   <div class="top_menu">
                       <router-link to="login" v-show="isLogin===false">로그인</router-link>
-                      <router-link to="login" v-show="isLogin">마이페이지</router-link>
-                      <router-link to="register">회원가입</router-link>
-                      <a href="#">정보 찾기</a>
+                      <router-link to="myPage" v-show="isLogin">마이페이지</router-link>
+                      <button v-show="isLogin" @click="logout">로그아웃</button>
+                      <router-link to="register" v-show="isLogin===false">회원가입</router-link>
+                      <a href="#" v-show="isLogin===false">정보 찾기</a>
                   </div>
                   <h1><router-link to="/">이유식 요리사</router-link></h1>
               </div>
@@ -37,13 +38,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {}
   },
   computed: {
     ...mapState(['isLogin', 'isLoginError'])
+  },
+  methods: {
+    ...mapActions(['logout'])
   }
 }
 </script>
