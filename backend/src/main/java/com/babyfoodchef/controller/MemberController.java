@@ -26,24 +26,23 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody LoginObjDto loginObj, HttpServletResponse response) {
-        MemberDto member = memberService.findByIdAndPw(loginObj);
-        if (member==null) return;
+    public String login(@RequestBody MemberDto memberDto) {
+        MemberDto member = memberService.findByIdAndPw(memberDto);
+        if (member==null) return "";
         TokenDto tokenDto = jwtService.createTokenDto(member);
-        response.addHeader("Token", tokenDto.getAccessToken());
         member.setToken(tokenDto.getRefreshToken());
         memberService.update(member);
+        return tokenDto.getAccessToken();
     }
     @GetMapping("/findById/{id}")
-    public void sendMemberInfo(@PathVariable String id, HttpServletResponse response){
+    public String findById(@PathVariable String id){
         //헤더에 닉네임을 보냄
         //나중에 보낼게 더 있으면 토큰에다가 추가해서 보내기.
         MemberDto member = memberService.findById(id);
-        response.addHeader("NickName", member.getNickName());
+        return member.getNickName();
     }
-    //return으로 vue에 전달하기 테스트해보기, 객체로 뷰에 전달하기 테스트
     @GetMapping("/findByEmail/{email}")
-    public String findByEmail(@PathVariable String email, HttpServletResponse response){
+    public String findByEmail(@PathVariable String email){
         MemberDto member = memberService.findByEmail(email);
         return member.getEmail();
     }

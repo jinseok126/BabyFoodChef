@@ -17,8 +17,8 @@ public class MemberDaoImpl implements MemberDao{
     }
 
     @Override
-    public MemberDto findByIdAndPw(LoginObjDto loginObj) {
-        return memberMapper.findByIdAndPw(loginObj);
+    public MemberDto findByIdAndPw(MemberDto memberDto) {
+        return memberMapper.findByIdAndPw(memberDto);
     }
 
     @Override

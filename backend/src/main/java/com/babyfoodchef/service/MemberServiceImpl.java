@@ -17,8 +17,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDto findByIdAndPw(LoginObjDto loginObj) {
-        return memberDao.findByIdAndPw(loginObj);
+    public MemberDto findByIdAndPw(MemberDto memberDto) {
+        return memberDao.findByIdAndPw(memberDto);
     }
 
     @Override

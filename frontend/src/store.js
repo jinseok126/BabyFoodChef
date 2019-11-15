@@ -32,8 +32,9 @@ export default new Vuex.Store({
   actions: {
     login ({dispatch, commit}, loginObj) {
       axios.post('member/login', loginObj).then(res => {
-        let token = res.headers.token
-        if (token === undefined) {
+        let token = res.data
+        console.log(token)
+        if (token === '') {
           commit('loginError')
         } else {
           localStorage.setItem('accessToken', token)
@@ -51,7 +52,7 @@ export default new Vuex.Store({
           .then(response => {
             let memberInfo = {
               id: decodeToken.sub,
-              nickName: response.headers.nickname
+              nickName: response.data
             }
             commit('loginSuccess', memberInfo)
           })

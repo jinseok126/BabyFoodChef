@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MemberMapper {
     void insert(MemberDto memberDto);
     MemberDto findById(String id);
-    MemberDto findByIdAndPw(LoginObjDto loginObj);
+    MemberDto findByIdAndPw(MemberDto memberDto);
     MemberDto findByEmail(String email);
     MemberDto findByIdAndEmail(String id, String email);
     void update(MemberDto memberDto);
