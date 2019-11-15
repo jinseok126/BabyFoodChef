@@ -1,6 +1,5 @@
 package com.babyfoodchef.controller;
 
-import com.babyfoodchef.dto.LoginObjDto;
 import com.babyfoodchef.dto.MemberDto;
 import com.babyfoodchef.dto.TokenDto;
 import com.babyfoodchef.jwt.JwtService;
@@ -8,7 +7,6 @@ import com.babyfoodchef.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/member")
@@ -34,6 +32,7 @@ public class MemberController {
         memberService.update(member);
         return tokenDto.getAccessToken();
     }
+
     @GetMapping("/findById/{id}")
     public String findById(@PathVariable String id){
         //헤더에 닉네임을 보냄
@@ -41,6 +40,7 @@ public class MemberController {
         MemberDto member = memberService.findById(id);
         return member.getNickName();
     }
+
     @GetMapping("/findByEmail/{email}")
     public String findByEmail(@PathVariable String email){
         MemberDto member = memberService.findByEmail(email);
