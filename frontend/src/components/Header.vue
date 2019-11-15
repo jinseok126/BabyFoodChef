@@ -51,7 +51,7 @@ export default {
     ...mapActions(['logout'])
   }
 }
-</script>
+</script scope>
 <style scoped>
 body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,fieldset,legend,label,p,address,table,dl,dt,dd,input,select,textarea,button,figure,figcaption{margin:0;padding:0;font-family:'Noto Sans KR Light',sans-serif}
 
