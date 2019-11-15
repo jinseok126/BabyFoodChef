@@ -23,7 +23,7 @@
                       </li>
                       <li><a href="#">회원공유레시피</a>
                           <p>회원공유레시피 내용</p>
-                      </li>asd
+                      </li>
                       <li><a href="#">정보</a>
                           <p>정보 내용</p>
                       </li>
@@ -51,7 +51,7 @@ export default {
     ...mapActions(['logout'])
   }
 }
-</script scope>
+</script>
 <style scoped>
 body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,fieldset,legend,label,p,address,table,dl,dt,dd,input,select,textarea,button,figure,figcaption{margin:0;padding:0;font-family:'Noto Sans KR Light',sans-serif}
 
