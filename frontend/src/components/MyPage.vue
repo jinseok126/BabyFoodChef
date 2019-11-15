@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ memberInfo.nickName }}님 환영합니다...</h1>
+    <h1>{{ memberInfo.nickName }}님 환영합니다람쥐</h1>
   </div>
 </template>
 
