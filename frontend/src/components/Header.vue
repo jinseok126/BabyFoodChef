@@ -1,6 +1,5 @@
 <template>
-  <body>
-      <div id="wrap">
+       <div id="wrap">
           <header id="header">
               <div class="container">
                   <div class="top_menu">
@@ -35,7 +34,6 @@
           </main>
           <footer></footer>
       </div>
-  </body>
 </template>
 
 <script>
