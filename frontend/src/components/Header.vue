@@ -1,7 +1,11 @@
 <template>
   <div class="body">
       <div id="wrap">
+<<<<<<< HEAD
           <div class="header">
+=======
+          <div id="header">
+>>>>>>> a48a22776dfcccb5e945bfceacc4cf61188ae98c
               <div class="container">
                   <div class="top_menu">
                       <router-link to="login" v-show="isLogin===false">로그인</router-link>
@@ -49,6 +53,7 @@
               </div>
               <div class="gnb_bg"></div>
           </div>
+<<<<<<< HEAD
           <div class="main">
             <div class="main_images">
                 <ul>
@@ -57,6 +62,8 @@
             </div>
           </div>
           <div class="footer"></div>
+=======
+>>>>>>> a48a22776dfcccb5e945bfceacc4cf61188ae98c
       </div>
   </div>
 </template>
@@ -77,20 +84,8 @@ export default {
 </script>
 <!--scoped = 해당 컴포넌트에만 style 적용 -->
 <style scoped>
-body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,fieldset,legend,label,p,address,table,dl,dt,dd,input,select,textarea,button,figure,figcaption{margin:0;padding:0;font-family:'Noto Sans KR Light',sans-serif}
-
-     ul,li{list-style:none}
-     a{text-decoration:none;color:#222}
-     a:hover{color:#2698cb}
-     address{font-style:normal}
-     form,input,button{vertical-align:middle}
-     button{cursor:pointer}
-     img,fieldset{border:none}
-     input{border:none;outline:none}
-
-     body,input,textarea,select,button,table{font-family:"Noto Sana KR",sans-serif;font-size:13px;line-height:1.5;letter-spacing:-1px;direction:ltr}
-
      /*header*/
+<<<<<<< HEAD
      .header{height:150px;background:url('/static/images/top_bg.jpg') repeat-x}
      .container{width:1200px;margin:0 auto}
      .top_menu{text-align:right;height:42px;}
@@ -100,6 +95,17 @@ body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,f
 
      /*gnb*/
      .gnb{width:920px;float:left;position:relative;z-index:10}
+=======
+     #header{height:150px;background:url('/static/images/top_bg.jpg') repeat-x}
+     .container{width:1200px;margin:0 auto}
+     .top_menu{text-align:right;height:42px;}
+     .top_menu>a{display:inline-block;color:#fff;font-size:15px;line-height:40px;padding-right:15px}
+     #header h1{float:left;width:280px;height:80px;background:url('/static/images/logo.jpg') no-repeat;text-indent:-9999px;margin-top:20px}
+     #header h1>a{display:block;height:100%;}
+
+     /*gnb*/
+     .gnb{float:left;width:920px;position:relative;z-index:10}
+>>>>>>> a48a22776dfcccb5e945bfceacc4cf61188ae98c
      .gnb h2{position:absolute;left:-9999px;top:-9999px;}
      .gnb>ul{overflow:hidden}
      .gnb>ul>li>a{float:left;display:block;width:230px;height:70px;font-size:20px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;line-height:70px;padding:20px 0 20px 0}
