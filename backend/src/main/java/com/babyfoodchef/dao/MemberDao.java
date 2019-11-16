@@ -1,6 +1,5 @@
 package com.babyfoodchef.dao;
 
-import com.babyfoodchef.dto.LoginObjDto;
 import com.babyfoodchef.dto.MemberDto;
 
 public interface MemberDao {
@@ -8,6 +7,6 @@ public interface MemberDao {
     MemberDto findById(String id);
     MemberDto findByIdAndPw(MemberDto memberDto);
     MemberDto findByEmail(String email);
-    MemberDto findByIdAndEmail(String id, String email);
+    MemberDto findByIdAndEmail(MemberDto memberDto);
     void update(MemberDto memberDto);
 }

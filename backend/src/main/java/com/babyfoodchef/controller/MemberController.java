@@ -32,7 +32,6 @@ public class MemberController {
         memberService.update(member);
         return tokenDto.getAccessToken();
     }
-
     @GetMapping("/findById/{id}")
     public String findById(@PathVariable String id){
         //헤더에 닉네임을 보냄
@@ -48,4 +47,10 @@ public class MemberController {
         return member.getId();
     }
 
+    @PostMapping("/findByIdAndEmail")
+    public Boolean findByIdAndEmail(@RequestBody MemberDto memberDto) {
+        MemberDto member = memberService.findByIdAndEmail(memberDto);
+        if (member==null) return false;
+        return true;
+    }
 }

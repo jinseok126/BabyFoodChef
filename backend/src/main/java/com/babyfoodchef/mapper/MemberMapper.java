@@ -1,6 +1,5 @@
 package com.babyfoodchef.mapper;
 
-import com.babyfoodchef.dto.LoginObjDto;
 import com.babyfoodchef.dto.MemberDto;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,7 +9,7 @@ public interface MemberMapper {
     MemberDto findById(String id);
     MemberDto findByIdAndPw(MemberDto memberDto);
     MemberDto findByEmail(String email);
-    MemberDto findByIdAndEmail(String id, String email);
+    MemberDto findByIdAndEmail(MemberDto memberDto);
     void update(MemberDto memberDto);
 
 }
