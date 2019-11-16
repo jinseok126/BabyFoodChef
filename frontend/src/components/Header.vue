@@ -1,7 +1,11 @@
 <template>
   <div class="body">
       <div id="wrap">
+<<<<<<< HEAD
+          <div class="header">
+=======
           <div id="header">
+>>>>>>> a48a22776dfcccb5e945bfceacc4cf61188ae98c
               <div class="container">
                   <div class="top_menu">
                       <router-link to="login" v-show="isLogin===false">로그인</router-link>
@@ -49,6 +53,17 @@
               </div>
               <div class="gnb_bg"></div>
           </div>
+<<<<<<< HEAD
+          <div class="main">
+            <div class="main_images">
+                <ul>
+                    <li class="main_image_01"><a href="#"><img src="images/main_image_01.jpg" alt="이유식 요리사 오픈 기념 아기사진 공모전 이벤트"></a></li>
+                </ul>
+            </div>
+          </div>
+          <div class="footer"></div>
+=======
+>>>>>>> a48a22776dfcccb5e945bfceacc4cf61188ae98c
       </div>
   </div>
 </template>
@@ -71,6 +86,17 @@ export default {
 <style scoped>
      @import url('css/app.css');
      /*header*/
+<<<<<<< HEAD
+     .header{height:150px;background:url('/static/images/top_bg.jpg') repeat-x}
+     .container{width:1200px;margin:0 auto}
+     .top_menu{text-align:right;height:42px;}
+     .top_menu>a{display:inline-block;color:#fff;font-size:15px;line-height:40px;padding-right:15px}
+     .header h1{float:left;width:280px;height:80px;background:url('/static/images/logo.jpg') no-repeat;text-indent:-9999px;margin-top:20px}
+     .header h1>a{display:block;height:100%;}
+
+     /*gnb*/
+     .gnb{width:920px;float:left;position:relative;z-index:10}
+=======
      #header{height:150px;background:url('/static/images/top_bg.jpg') repeat-x}
      .container{width:1200px;margin:0 auto}
      .top_menu{text-align:right;height:42px;}
@@ -80,6 +106,7 @@ export default {
 
      /*gnb*/
      .gnb{float:left;width:920px;position:relative;z-index:10}
+>>>>>>> a48a22776dfcccb5e945bfceacc4cf61188ae98c
      .gnb h2{position:absolute;left:-9999px;top:-9999px;}
      .gnb>ul{overflow:hidden}
      .gnb>ul>li>a{float:left;display:block;width:230px;height:70px;font-size:20px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;line-height:70px;padding:20px 0 20px 0}
