@@ -69,6 +69,7 @@ export default {
 </script>
 <!--scoped = 해당 컴포넌트에만 style 적용 -->
 <style scoped>
+     @import url('css/app.css');
      /*header*/
      #header{height:150px;background:url('/static/images/top_bg.jpg') repeat-x}
      .container{width:1200px;margin:0 auto}
