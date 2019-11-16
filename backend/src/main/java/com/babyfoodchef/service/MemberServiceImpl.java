@@ -1,7 +1,6 @@
 package com.babyfoodchef.service;
 
 import com.babyfoodchef.dao.MemberDao;
-import com.babyfoodchef.dto.LoginObjDto;
 import com.babyfoodchef.dto.MemberDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +36,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDto findByIdAndEmail(String id, String email) {
-        return memberDao.findByIdAndEmail(id, email);
+    public MemberDto findByIdAndEmail(MemberDto memberDto) {
+        return memberDao.findByIdAndEmail(memberDto);
     }
 }
