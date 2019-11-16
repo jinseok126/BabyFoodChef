@@ -78,7 +78,7 @@ export default {
      #header h1>a{display:block;height:100%;}
 
      /*gnb*/
-     .gnb{float:left;width:920px;position:relative;z-index:10}
+     .gnb{float:left;width:1200px;position:relative;z-index:10}
      .gnb h2{position:absolute;left:-9999px;top:-9999px;}
      .gnb>ul{overflow:hidden}
      .gnb>ul>li>a{float:left;display:block;width:230px;height:70px;font-size:20px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;line-height:70px;padding:20px 0 20px 0}
