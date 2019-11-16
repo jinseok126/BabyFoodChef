@@ -11,7 +11,6 @@
 <script>
 </script>
 <style>
-  @import url('css/app.css');
   /*main*/
   #main{}
   .main_images{}
