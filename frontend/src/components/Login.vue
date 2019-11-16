@@ -24,10 +24,13 @@
           <label>비밀번호:</label>
         </b-col>
         <b-col sm="10">
-          <b-form-input v-model="password" size="sm" placeholder="비밀번호를 입력해주세요."></b-form-input>
+          <b-form-input type="password" v-model="password" size="sm" placeholder="비밀번호를 입력해주세요."></b-form-input>
         </b-col>
       </b-row>
       <b-button @click="login({id, password})">LOGIN</b-button>
+      <b-button>회원가입</b-button>
+      <b-button>아이디찾기</b-button>
+      <b-button>비밀번호 찾기</b-button>
     </b-card-text>
   </b-card>
   </div>

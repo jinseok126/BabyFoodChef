@@ -44,7 +44,8 @@ public class MemberController {
     @GetMapping("/findByEmail/{email}")
     public String findByEmail(@PathVariable String email){
         MemberDto member = memberService.findByEmail(email);
-        return member.getEmail();
+        if(member == null) return "";
+        return member.getId();
     }
 
 }

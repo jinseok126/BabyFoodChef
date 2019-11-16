@@ -8,7 +8,7 @@
                       <router-link to="myPage" v-show="isLogin">마이페이지</router-link>
                       <button v-show="isLogin" @click="logout">로그아웃</button>
                       <router-link to="register" v-show="isLogin===false">회원가입</router-link>
-                      <router-link to="/" v-show="isLogin===false">아이디 찾기</router-link>
+                      <router-link to="findId" v-show="isLogin===false">아이디 찾기</router-link>
                       <router-link to="/" v-show="isLogin===false">비밀번호 찾기</router-link>
                   </div>
                   <h1><router-link to="/">이유식 요리사</router-link></h1>
@@ -52,6 +52,7 @@ export default {
   }
 }
 </script>
+<!--scoped = 해당 컴포넌트에만 style 적용 -->
 <style scoped>
 body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,fieldset,legend,label,p,address,table,dl,dt,dd,input,select,textarea,button,figure,figcaption{margin:0;padding:0;font-family:'Noto Sans KR Light',sans-serif}
 

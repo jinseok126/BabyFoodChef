@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import MyPage from '@/components/MyPage'
 import Main from '@/components/Main'
+import FindId from '@/components/FindId'
 
 Vue.use(Router)
 
@@ -40,12 +41,6 @@ export default new Router({
       component: Register
     },
     {
-      path: '/register',
-      name: 'Register',
-      beforeEnter: rejectAuthUser,
-      component: Register
-    },
-    {
       path: '/login',
       name: 'Login',
       beforeEnter: rejectAuthUser,
@@ -56,6 +51,12 @@ export default new Router({
       name: 'MyPage',
       beforeEnter: onlyAuthUser,
       component: MyPage
+    },
+    {
+      path: '/findId',
+      name: 'FindId',
+      beforeEnter: rejectAuthUser,
+      component: FindId
     }
   ]
 })
