@@ -11,8 +11,8 @@
                       <router-link to="findId" v-show="isLogin===false">아이디 찾기</router-link>
                       <router-link to="/" v-show="isLogin===false">비밀번호 찾기</router-link>
                   </div>
-                  <h1><router-link to="/">이유식 요리사</router-link></h1>
                   <div class="gnb">
+                    <h1><router-link to="/">이유식 요리사</router-link></h1>
                     <h2>GNB</h2>
                     <ul>
                       <li class="service"><a href="#">이요 서비스</a>
