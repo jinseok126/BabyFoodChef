@@ -17,7 +17,7 @@ export default new Vuex.Store({
   mutations: {
     loadFreeBoard (state) {
       axios.get('board/free/findAll').then(result => {
-        state.freeBoard = result.data
+        state.freeBoard = result.data.sort((a, b) => { return b.no - a.no })
       })
     },
     loginSuccess (state, payload) {
