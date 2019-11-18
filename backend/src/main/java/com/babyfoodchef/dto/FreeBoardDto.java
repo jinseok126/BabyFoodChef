@@ -2,7 +2,6 @@ package com.babyfoodchef.dto;
 
 import lombok.Data;
 
-import java.util.Date;
 
 @Data
 public class FreeBoardDto {
@@ -10,5 +9,5 @@ public class FreeBoardDto {
     private String writer;
     private String title;
     private String contents;
-    private Date dateCreated;
+    private String dateCreated;
 }
