@@ -30,7 +30,7 @@
                           <li><a href="#">완료기(12~14개월)</a></li>
                         </ul>
                       </li>
-                      <li class="talk"><a href="#">맘's 토크</a>
+                      <li class="talk"><router-link to="board/free">맘`s 토크</router-link>
                         <ul>
                           <li><a href="#">공지사항</a></li>
                           <li><a href="#">나만의 레시피 공유</a></li>

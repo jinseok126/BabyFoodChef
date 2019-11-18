@@ -8,12 +8,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    freeBoard: [],
     memberInfo: null,
     isLogin: false,
     isLoginError: false,
     isTrustToken: false
   },
   mutations: {
+    loadFreeBoard (state) {
+      axios.get('board/free/findAll').then(result => {
+        state.freeBoard = result.data
+      })
+    },
     loginSuccess (state, payload) {
       state.isLogin = true
       state.isLoginError = false

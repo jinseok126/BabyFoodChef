@@ -21,6 +21,7 @@ new Vue({
   router,
   store,
   beforeCreate () {
+    this.$store.commit('loadFreeBoard')
     this.$store.dispatch('getMemberInfo')
   },
   components: {App},
