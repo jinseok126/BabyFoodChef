@@ -1,7 +1,8 @@
-<!-- 1. root div태그 크기 고정인거 해결하기
+<!-- 1. 회원가입 폼 크 고정인거 조정
 2. email @로 v-model갈리는거 해결하기
 3. 중복확인 만들기
-4. 체크 검사해서 Modal 띄우기 -->
+4. 체크 검사해서 Modal 띄우기
+5. form 태그에 name이랑 method 꼭 필요한지?-->
 <template>
 <div id="main">
     <form action="" name="join_form" method="post">
@@ -17,11 +18,11 @@
                     <p class="pwd">
                         <input type="password" name="pwd" id="pwd" size="59" v-model="User.password" placeholder="비밀번호"/>
                     </p>
-                    <p class="pwd_caution" v-show="passwordMsg!==''">{{ passwordMsg }}</p>
+                    <p class="pwd_caution" v-if="passwordMsg!==''">{{ passwordMsg }}</p>
                     <p class="repwd">
                         <input type="password" name="repwd" id="repwd" size="59" v-model="confirmPassword" placeholder="비밀번호 확인"/>
                     </p>
-                    <p class="pwd_caution" v-show="confirmPasswordMsg!==''">{{ confirmPasswordMsg }}</p>
+                    <p class="pwd_caution" v-if="confirmPasswordMsg!==''">{{ confirmPasswordMsg }}</p>
                 </div>
                 <p class="nick">
                     <input type="text" name="nick" id="nick" size="20" v-model="User.nickName" placeholder="닉네임" />
@@ -116,7 +117,7 @@ input{border:none;outline:none}
 body,input,textarea,select,button,table{font-family:"Noto Sana KR",sans-serif;font-size:13px;line-height:1.5;letter-spacing:-1px;direction:ltr}
 
 /*main*/
-#main{background:#f7f7f5;height:900px;}
+#main{background:#f7f7f5;height: 900px;}
 .sign_up_title{font-size:36px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;padding-top:40px}
 .sign_up_sub_title{font-size:17px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;padding-top:10px;margin-bottom:25px}
 .form_wrap{position:relative;width:675px;height:550px;background:#fff;margin:0 auto;padding:40px}
