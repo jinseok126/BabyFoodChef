@@ -15,12 +15,12 @@
                         <label for="pwd" v-show="User.password == ''">비밀번호</label>
                         <input type="password" name="pwd" id="pwd" size="59" v-model="User.password"/>
                     </p>
-                    <p class="pwd_caution" v-show="msg1.length>0">{{ msg1 }}</p>
+                    <p class="pwd_caution">{{ passwordMsg }}</p>
                     <p class="repwd">
                         <label for="repwd" v-show="confirmPassword == ''">비밀번호 확인</label>
                         <input type="password" name="repwd" id="repwd" size="59" v-model="confirmPassword"/>
                     </p>
-                    <p class="pwd_caution" v-show="msg2.length>0">{{ msg2 }}</p>
+                    <p class="repwd_caution">{{ confirmPasswordMsg }}</p>
                 </div>
                 <p class="nick">
                     <label for="nick" v-show="User.nickName == ''">닉네임</label>
@@ -123,18 +123,20 @@ body,input,textarea,select,button,table{font-family:"Noto Sana KR",sans-serif;fo
 .form_wrap{position:relative;width:675px;height:550px;background:#fff;margin:0 auto;padding:40px}
 .form_wrap label{position:absolute;left:41px;font-size:18px;color:#9e9e9e;font-family:'Noto Sans KR Regular',sans-serif;cursor:text}
 .form_wrap input{border-bottom:1px solid #d0d0d0;font-size:18px;font-family:'Noto Sans KR Regular',sans-serif;margin-bottom:15px;padding-top:10px;padding:13px 0px;}
-.form_wrap .uid label{top:55px}
-.form_wrap .pwd label{top:125px}
-.form_wrap .repwd label{top:195px}
-.form_wrap .nick label{top:285px}
-.form_wrap .uemail label{top:350px}
+.form_wrap .uid label{top:53px}
+.form_wrap .pwd label{top:123px}
+.form_wrap .repwd label{top:210px}
+.form_wrap .nick label{top:302px}
+.form_wrap .uemail label{top:370px}
 .form_wrap .email_dns{padding-left:10px}
 .form_wrap .uid button{background:#ffa200;border:none;color:#fff;padding:10px 10px;width:100px;border-radius:8px;margin-left:10px}
 .form_wrap .uid button:hover{background:#ef8700}
 .form_wrap .nick button{background:#ffa200;border:none;color:#fff;padding:10px 10px;width:100px;border-radius:8px;margin-left:10px}
 .form_wrap .nick button:hover{background:#ef8700}
+.form_wrap .pwd input{margin-bottom:5px}
 .form_wrap .repwd input{margin-bottom:5px}
 .form_wrap .pwd_caution{padding-left:25px;height:20px;background:url('/static/images/sign_up_caution.jpg') no-repeat;margin-bottom:10px}
+.form_wrap .repwd_caution{padding-left:25px;height:20px;background:url('/static/images/sign_up_caution.jpg') no-repeat;margin-bottom:10px}
 .form_wrap .uemail{margin-bottom:35px}
 .form_wrap .uemail select{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:175px;padding:10px;background:url('/static/images/select_icon.jpg') no-repeat 140px 17px;color:#9e9e9e;font-size:17px;font-family:'Noto Sans KR Regular',sans-serif;margin-left:14px}
 .form_wrap .join_button{text-align:center}
