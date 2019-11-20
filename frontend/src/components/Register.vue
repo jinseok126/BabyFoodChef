@@ -17,8 +17,8 @@
                     </p>
                     <p class="pwd_caution" v-show="msg1.length>0">{{ msg1 }}</p>
                     <p class="repwd">
-                        <label for="repwd" v-show="password2 == ''">비밀번호 확인</label>
-                        <input type="password" name="repwd" id="repwd" size="59" v-model="password2"/>
+                        <label for="repwd" v-show="confirmPassword == ''">비밀번호 확인</label>
+                        <input type="password" name="repwd" id="repwd" size="59" v-model="confirmPassword"/>
                     </p>
                     <p class="pwd_caution" v-show="msg2.length>0">{{ msg2 }}</p>
                 </div>
@@ -57,7 +57,7 @@ export default {
         nickName: '',
         email: ''
       },
-      password2: ''
+      confirmPassword: ''
     }
   },
   methods: {
@@ -89,11 +89,11 @@ export default {
       }
     },
     msg2 () {
-      if (this.password2 === '') {
+      if (this.confirmPassword === '') {
         return ''
-      } else if (this.User.password.length < 6 || this.User.password.length > 13) {
+      } else if (this.confirmPassword.length < 6 || this.confirmPassword.length > 13) {
         return '최소 6자 이상 13자 이하로 작성해주세요.'
-      } else if (this.password2 !== this.User.password) {
+      } else if (this.confirmPassword !== this.User.password) {
         return '비밀번호가 일치하지 않습니다'
       } else {
         return ''
