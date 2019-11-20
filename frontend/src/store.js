@@ -18,7 +18,7 @@ export default new Vuex.Store({
     loadFreeBoard (state) {
       axios.get('board/free/findAll').then(result => {
         state.freeBoard = result.data.sort((a, b) => { return b.no - a.no })
-      })
+      }).catch(() => {})
     },
     loginSuccess (state, payload) {
       state.isLogin = true
@@ -61,7 +61,7 @@ export default new Vuex.Store({
               nickName: response.data
             }
             commit('loginSuccess', memberInfo)
-          })
+          }).catch(() => {})
         axios.defaults.headers.common['Authorization'] = token
         axios.defaults.headers.common['MemberId'] = decodeToken.sub
         dispatch('checkToken')
