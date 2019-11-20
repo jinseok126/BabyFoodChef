@@ -64,29 +64,30 @@
             <p class="sign_up_sub_title">이유식 요리사를 100% 즐기는 방법, 가입을 환영합니다!</p>
             <div class="form_wrap">
                 <p class="uid">
-                    <label for="uid">아이디</label>
-                    <input type="text" name="uid" id="uid" size="20" />
+                    <label for="uid" v-show="User.id == ''">아이디</label>
+                    <input type="text" name="uid" id="uid" size="20" v-model="User.id"/>
                     <button type="">중복확인</button>
                 </p>
                 <div class="pwd_wrap">
                     <p class="pwd">
-                        <label for="pwd">비밀번호</label>
-                        <input type="password" name="pwd" id="pwd" size="59" />
+                        <label for="pwd" v-show="User.password == ''">비밀번호</label>
+                        <input type="password" name="pwd" id="pwd" size="59" v-model="User.password"/>
                     </p>
+                    <p class="pwd_caution" v-show="msg1.length>0">{{ msg1 }}</p>
                     <p class="repwd">
-                        <label for="repwd">비밀번호 확인</label>
-                        <input type="password" name="repwd" id="repwd" size="59" />
+                        <label for="repwd" v-show="password2 == ''">비밀번호 확인</label>
+                        <input type="password" name="repwd" id="repwd" size="59" v-model="password2"/>
                     </p>
-                    <p class="pwd_caution">최소 6자 이상 13자 이하로 작성해주세요.</p>
+                    <p class="pwd_caution" v-show="msg2.length>0">{{ msg2 }}</p>
                 </div>
                 <p class="nick">
-                    <label for="nick">닉네임</label>
-                    <input type="text" name="nick" id="nick" size="20" />
+                    <label for="nick" v-show="User.nickName == ''">닉네임</label>
+                    <input type="text" name="nick" id="nick" size="20" v-model="User.nickName"/>
                     <button type="">중복확인</button>
                 </p>
                 <p class="uemail">
-                    <label for="email_id">이메일</label>
-                    <input type="text" name="email_id" id="email_id" size="10" /> @
+                    <label for="email_id" v-show="User.email == ''">이메일</label>
+                    <input type="text" name="email_id" id="email_id" size="10" v-model="User.email"/> @
                     <input type="text" name="email_dns" id="email_dns" class="email_dns" size="18" />
                     <select name="sel_dns" id="sel_dns" onchange="">
                         <option value="">직접입력</option>
@@ -96,7 +97,7 @@
                     </select>
                 </p>
                 <p class="join_button">
-                    <button type="button" onclick="form_check(this.form)">가입하기</button>
+                    <button>가입하기</button>
                 </p>
             </div>
         </fieldset>
@@ -139,8 +140,8 @@ export default {
     msg1 () {
       if (this.User.password === '') {
         return ''
-      } else if (this.User.password.length < 6) {
-        return '6글자 이상 입력하세요.'
+      } else if (this.User.password.length < 6 || this.User.password.length > 13) {
+        return '최소 6자 이상 13자 이하로 작성해주세요.'
       } else {
         return ''
       }
@@ -148,12 +149,12 @@ export default {
     msg2 () {
       if (this.password2 === '') {
         return ''
-      } else if (this.password2.length < 6) {
-        return '6글자 이상 입력하세요.'
+      } else if (this.User.password.length < 6 || this.User.password.length > 13) {
+        return '최소 6자 이상 13자 이하로 작성해주세요.'
       } else if (this.password2 !== this.User.password) {
         return '비밀번호가 일치하지 않습니다'
       } else {
-        return '비밀번호와 일치합니다.'
+        return ''
       }
     }
   }
