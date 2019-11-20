@@ -1,7 +1,8 @@
-<!-- 1. root div태그 크기 고정인거 해결하기
+<!-- 1. 회원가입 폼 크 고정인거 조정
 2. email @로 v-model갈리는거 해결하기
 3. 중복확인 만들기
-4. 체크 검사해서 Modal 띄우기 -->
+4. 체크 검사해서 Modal 띄우기
+5. form 태그에 name이랑 method 꼭 필요한지?-->
 <template>
 <div id="main">
     <form action="" name="join_form" method="post">
