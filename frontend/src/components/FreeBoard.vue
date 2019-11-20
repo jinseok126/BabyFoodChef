@@ -1,7 +1,7 @@
 <template>
 <div>
   <!--fields로 필요한 속성만 보여주기, 컬럼명 변경 -->
-  <b-table striped hover :items="freeBoard" :per-page="perPage" :current-page="currentPage" :fields="fields" @row-clicked="rowClick"></b-table>
+  <b-table class="table table-condensed" striped hover :items="freeBoard" :per-page="perPage" :current-page="currentPage" :fields="fields" @row-clicked="rowClick"></b-table>
   <!-- 페이지네이션 -->
   <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" align="center"></b-pagination>
   <b-button>글쓰기</b-button>
@@ -24,12 +24,12 @@ export default {
         label: '제목'
       },
       {
-        key: 'dateCreated',
-        label: '작성일'
-      },
-      {
         key: 'writer',
         label: '글쓴이'
+      },
+      {
+        key: 'dateCreated',
+        label: '작성일'
       }
       ],
       ...mapState(['freeBoard'])
@@ -55,3 +55,5 @@ export default {
   }
 }
 </script>
+<style scoped>
+</style>
