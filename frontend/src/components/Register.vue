@@ -1,8 +1,7 @@
-<!-- 1. 회원가입 폼 크 고정인거 조정
+<!-- 1. root div태그 크기 고정인거 해결하기
 2. email @로 v-model갈리는거 해결하기
 3. 중복확인 만들기
-4. 체크 검사해서 Modal 띄우기
-5. form 태그에 name이랑 method 꼭 필요한지?-->
+4. 체크 검사해서 Modal 띄우기 -->
 <template>
 <div id="main">
     <form action="" name="join_form" method="post">
@@ -11,25 +10,30 @@
             <p class="sign_up_sub_title">이유식 요리사를 100% 즐기는 방법, 가입을 환영합니다!</p>
             <div class="form_wrap">
                 <p class="uid">
+                    <label for="uid">아이디</label>
                     <input type="text" name="uid" id="uid" size="20" v-model="User.id" placeholder="아이디" />
                     <button type="">중복확인</button>
                 </p>
                 <div class="pwd_wrap">
                     <p class="pwd">
-                        <input type="password" name="pwd" id="pwd" size="59" v-model="User.password" placeholder="비밀번호"/>
+                        <label for="pwd">비밀번호</label>
+                        <input type="password" name="pwd" id="pwd" size="59" v-model="User.password" placeholder="비밀번호" />
                     </p>
                     <p class="pwd_caution" v-show="passwordMsg!==''">{{ passwordMsg }}</p>
                     <p class="repwd">
-                        <input type="password" name="repwd" id="repwd" size="59" v-model="confirmPassword" placeholder="비밀번호 확인"/>
+                        <label for="repwd">비밀번호 확인</label>
+                        <input type="password" name="repwd" id="repwd" size="59" v-model="confirmPassword" placeholder="비밀번호 확인" />
                     </p>
                     <p class="pwd_caution" v-show="confirmPasswordMsg!==''">{{ confirmPasswordMsg }}</p>
                 </div>
                 <p class="nick">
+                    <label for="nick">닉네임</label>
                     <input type="text" name="nick" id="nick" size="20" v-model="User.nickName" placeholder="닉네임" />
                     <button type="">중복확인</button>
                 </p>
                 <p class="uemail">
-                    <input type="text" name="email_id" id="email_id" size="10" v-model="User.email" placeholder="이메일"/> @
+                    <label for="">이메일</label>
+                    <input type="text" name="email_id" id="email_id" size="10" v-model="User.email" placeholder="이메일" /> @
                     <input type="text" name="email_dns" id="email_dns" class="email_dns" size="18" />
                     <select name="sel_dns" id="sel_dns" onchange="">
                         <option value="">직접입력</option>
@@ -121,13 +125,8 @@ body,input,textarea,select,button,table{font-family:"Noto Sana KR",sans-serif;fo
 .sign_up_title{font-size:36px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;padding-top:40px}
 .sign_up_sub_title{font-size:17px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;padding-top:10px;margin-bottom:25px}
 .form_wrap{position:relative;width:675px;height:550px;background:#fff;margin:0 auto;padding:40px}
-.form_wrap label{position:absolute;left:41px;font-size:18px;color:#9e9e9e;font-family:'Noto Sans KR Regular',sans-serif;cursor:text}
+.form_wrap label{position:absolute;left:-9999px;top:-9999px}
 .form_wrap input{border-bottom:1px solid #d0d0d0;font-size:18px;font-family:'Noto Sans KR Regular',sans-serif;margin-bottom:15px;padding-top:10px;padding:13px 0px;}
-.form_wrap .uid label{top:55px}
-.form_wrap .pwd label{top:125px}
-.form_wrap .repwd label{top:195px}
-.form_wrap .nick label{top:285px}
-.form_wrap .uemail label{top:350px}
 .form_wrap .email_dns{padding-left:10px}
 .form_wrap .uid button{background:#ffa200;border:none;color:#fff;padding:10px 10px;width:100px;border-radius:8px;margin-left:10px}
 .form_wrap .uid button:hover{background:#ef8700}
