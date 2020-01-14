@@ -1,5 +1,5 @@
 <template>
-  <!--<div>
+  <!-- <div>
     <b-alert
     variant="danger"
     style="width: 40rem"
@@ -33,7 +33,7 @@
       <b-button>비밀번호 찾기</b-button>
     </b-card-text>
   </b-card>
-</div>-->
+</div> -->
   <div id="wrap">
         <div class="container">
             <div id="header">
@@ -93,10 +93,11 @@ export default {
   }
 }
 </script>
-<style>
+
+<style scoped>
 body{background:#eee;min-height:100%}
-/*wrap*/
-#wrap{width:700px;margin:0 auto;background:#fff;min-height:100%}
+/*wrap width:700px; min-height:100%*/
+#wrap{margin:0 auto;background:#f7f7f5; height: 500px}
 /*header*/
 #header h1{width:600px;height:70px;text-indent:-9999px;background:url('/static/images/logo.jpg') no-repeat center;padding:40px}
 #header h1 a{height:100%;display:block}
