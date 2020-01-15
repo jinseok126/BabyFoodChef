@@ -10,4 +10,5 @@ public class FreeBoardDto {
     private String title;
     private String contents;
     private String dateCreated;
+    private int viewCount;
 }

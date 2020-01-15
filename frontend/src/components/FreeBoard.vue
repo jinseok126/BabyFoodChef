@@ -42,7 +42,7 @@
                        </div>
                    </fieldset>
                </form>
-               <table class="board_list" width="1200">
+               <table class="board_list" width="1200" >
                    <caption>게시판 목록</caption>
                    <colgroup>
                        <col width="70" />
@@ -56,7 +56,7 @@
                            <td>번호</td>
                            <td>제목</td>
                            <td>글쓴이</td>
-                           <td>날짜</td>
+                           <td>작성일</td>
                            <td>조회수</td>
                        </tr>
                    </thead>
@@ -68,26 +68,13 @@
                          <td align="center">2019.12.19</td>
                          <td align="center">1234</td>
                       </tr>
-                      <tr>
-                         <td align="center">3</td>
-                         <td><a href="#">세 번째 게시물 입니다.</a></td>
-                         <td align="center">지워니3</td>
-                         <td align="center">2019.12.19</td>
-                         <td align="center">333</td>
-                      </tr>
-                      <tr>
-                         <td align="center">2</td>
-                         <td><a href="#">두 번째 게시물 입니다.</a></td>
-                         <td align="center">지워니2</td>
-                         <td align="center">2019.12.19</td>
-                         <td align="center">222</td>
-                      </tr>
-                      <tr>
-                         <td align="center">1</td>
-                         <td><a href="#">첫 번째 게시물 입니다.</a></td>
-                         <td align="center">지워니1</td>
-                         <td align="center">2019.12.19</td>
-                         <td align="center">111</td>
+
+                      <tr :key="value.no" v-for="value in items">
+                        <td align="center">{{ value.no }}</td>
+                        <td><a href="#">{{ value.title }}</a></td>
+                        <td align="center">{{ value.writer }}</td>
+                        <td align="center">{{ value.dateCreated }}</td>
+                        <td align="center">{{ value.viewCount }}</td>
                       </tr>
                    </tbody>
                </table>
@@ -100,30 +87,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   data () {
     return {
       currentPage: 1,
-      perPage: 10,
-      fields: [{
-        key: 'no',
-        label: '글번호'
-      },
-      {
-        key: 'title',
-        label: '제목'
-      },
-      {
-        key: 'writer',
-        label: '글쓴이'
-      },
-      {
-        key: 'dateCreated',
-        label: '작성일'
-      }
-      ],
-      ...mapState(['freeBoard'])
+      perPage: 10
     }
   },
   methods: {
@@ -140,8 +108,8 @@ export default {
     // }
   },
   computed: {
-    rows () {
-      return this.freeBoard.length
+    items () {
+      return this.$store.state.freeBoard
     }
   }
 }
