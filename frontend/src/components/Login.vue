@@ -34,45 +34,50 @@
     </b-card-text>
   </b-card>
 </div> -->
-  <div id="wrap">
-        <div class="container">
-            <div id="header">
-                <h1><a href="#">이유식 요리사</a></h1>
-            </div>
-            <div id="main">
-                <div class="form_wrap">
-                    <form action="" name="login_form">
-                        <fieldset>
-                            <legend>로그인</legend>
-                            <div class="login">
-                                <div class="login_wrap">
-                                    <p>
-                                        <label for="uid">아이디</label>
-                                        <input type="text" id="uid" placeholder="아이디" size="30" />
-                                    </p>
-                                    <p>
-                                        <label for="pwd">비밀번호</label>
-                                        <input type="password" id="pwd" placeholder="비밀번호" size="30" />
-                                    </p>
+  <div class="body">
+      <div id="wrap">
+            <div class="container">
+                <div id="header">
+                    <h1><a href="#">이유식 요리사</a></h1>
+                </div>
+                <div id="main">
+                    <div class="form_wrap">
+                        <form action="" name="login_form">
+                            <fieldset>
+                                <legend>로그인</legend>
+                                <div class="login">
+                                    <div class="login_wrap">
+                                        <p>
+                                            <label for="uid">아이디</label>
+                                            <input type="text" id="uid" placeholder="아이디" size="30" />
+                                        </p>
+                                        <p>
+                                            <label for="pwd">비밀번호</label>
+                                            <input type="password" id="pwd" placeholder="비밀번호" size="30" />
+                                        </p>
+                                    </div>
+                                    <button type="">로그인</button>
                                 </div>
-                                <button type="">로그인</button>
-                            </div>
-                            <p class="uid_save">
-                                <input type="checkbox" id="uid_save" />
-                                <label for="uid_save">아이디 저장</label>
-                            </p>
-                            <p class="find_id">
-                                <a href="#">아이디/비밀번호 찾기</a>
-                            </p>
-                            <div class="join">
-                                <p>회원이 아니신가요? 지금 가입하시고 이유의 다양한 서비스를 이용해보세요!</p>
-                                <button type="">회원가입</button>
-                            </div>
-                        </fieldset>
-                    </form>
+                                <p class="uid_save">
+                                    <input type="checkbox" id="uid_save" />
+                                    <label for="uid_save">아이디 저장</label>
+                                </p>
+                                <p class="find_id">
+                                    <a href="#">아이디/비밀번호 찾기</a>
+                                </p>
+                                <div class="join">
+                                    <p>회원이 아니신가요? 지금 가입하시고 이유의 다양한 서비스를 이용해보세요!</p>
+                                    <button type="">회원가입</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="copyright">
+                        <p>Copyright ⓒ 이유식요리사</p>
                 </div>
             </div>
-        </div>
+      </div>
   </div>
 </template>
 <script>
@@ -95,15 +100,16 @@ export default {
 </script>
 
 <style scoped>
-body{background:#eee;min-height:100%}
-/*wrap width:700px; min-height:100%*/
-#wrap{margin:0 auto;background:#f7f7f5; height: 500px}
+.body{background:#eee;height:100%}
+/*wrap*/
+#wrap{width:700px;margin:0 auto;background:#fff;min-height:100%}
 /*header*/
+#header{border-bottom:1px solid #eee;margin-bottom:50px;height:130px}
 #header h1{width:600px;height:70px;text-indent:-9999px;background:url('/static/images/logo.jpg') no-repeat center;padding:40px}
-#header h1 a{height:100%;display:block}
-
+#header h1 a{height:100%;display:block;}
 /*main*/
-#main{width:400px;margin:0 auto;}
+#main{width:700px;border-bottom:1px solid #eee;margin-bottom:5px}
+.form_wrap{width:400px;margin:0 auto}
 #main legend{position:absolute;left:-9999px;top:-9999px}
 /*.form_wrap{width:1200px;margin:0 auto}*/
 .login .login_wrap{;margin-bottom:5px;margin-right:10px}
@@ -111,12 +117,13 @@ body{background:#eee;min-height:100%}
 .login input{border:1px solid #aeaeae;font-size:18px;font-family:'Noto Sans KR Regular',sans-serif;padding:10px;margin-bottom:10px}
 .login button{background:#85b729;color:#fff;width:355px;height:50px;font-size:18px;font-family:'Noto Sans KR Regular',sans-serif;margin-bottom:10px}
 .login button:hover{background:#6c9f0d}
-.uid_save{;font-size:16px;float:left;margin-right:140px;margin-bottom:10px}
+.uid_save{;font-size:16px;float:left;margin-right:140px;margin-bottom:20px}
 .uid_save label{font-family:'Noto Sans KR Regular',sans-serif}
 .find_id{font-size:15px;float:left;font-family:'Noto Sans KR Regular',sans-serif;margin-bottom:15px}
 .find_id a:hover{color:#85b729}
 .join{clear:both}
 .join p{font-size:14px;color:#939393;margin-bottom:5px}
-.join button{width:150px;height:50px;background:#ffa200;color:#fff;font-family:'Noto Sans KR Regular',sans-serif;font-size:16px}
-.join button:hover{background:#ef8700}
+.join button{width:150px;height:50px;background:#ffa200;color:#fff;font-family:'Noto Sans KR Regular',sans-serif;font-size:16px;margin-bottom:50px}
+.join button:hover{background:#ef8700;}
+.copyright{font-size:13px;color:#585858;text-align:center;margin-right:10px}
 </style>
