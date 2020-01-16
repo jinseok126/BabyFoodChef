@@ -85,7 +85,7 @@
 </template>
 <script>
 </script>
-<style>
+<style scoped>
   /*main*/
   #main{}
     /*main_image*/

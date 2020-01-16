@@ -1,4 +1,4 @@
-<!-- 1. root div태그 크기 고정인거 해결하기
+<!--
 2. email @로 v-model갈리는거 해결하기
 3. 중복확인 만들기
 4. 체크 검사해서 Modal 띄우기 -->
@@ -124,7 +124,7 @@ body,input,textarea,select,button,table{font-family:"Noto Sana KR",sans-serif;fo
 #main{background:#f7f7f5;height:900px;}
 .sign_up_title{font-size:36px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;padding-top:40px}
 .sign_up_sub_title{font-size:17px;font-family:'Noto Sans KR Regular',sans-serif;text-align:center;padding-top:10px;margin-bottom:25px}
-.form_wrap{position:relative;width:675px;height:550px;background:#fff;margin:0 auto;padding:40px}
+.form_wrap{position:relative;width:675px; height:auto; background:#fff;margin:0 auto;padding:40px}
 .form_wrap label{position:absolute;left:-9999px;top:-9999px}
 .form_wrap input{border-bottom:1px solid #d0d0d0;font-size:18px;font-family:'Noto Sans KR Regular',sans-serif;margin-bottom:15px;padding-top:10px;padding:13px 0px;}
 .form_wrap .email_dns{padding-left:10px}
