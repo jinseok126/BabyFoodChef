@@ -48,12 +48,13 @@
               <div class="gnb_bg"></div>
           </div>
       </div>
+      <LoginModal v-if="showLoginModal" @close="showLoginModal = false"/>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import Modal from './modal/Modal.vue'
+import LoginModal from './modal/LoginModal.vue'
 
 export default {
   data () {
@@ -65,10 +66,13 @@ export default {
     ...mapState(['isLogin', 'isLoginError'])
   },
   methods: {
-    ...mapActions(['logout'])
+    ...mapActions(['logout']),
+    showLogin () {
+      this.showLoginModal = !this.showLoginModal
+    }
   },
   components: {
-    Modal: Modal
+    LoginModal
   }
 }
 </script>
