@@ -38,7 +38,7 @@
                                <option value="">조회순</option>
                                <option value="">댓글순</option>
                            </select>
-                           <button type="button">글쓰기</button>
+                           <button type="button" @click="write">글쓰기</button>
                        </div>
                    </fieldset>
                </form>
@@ -69,12 +69,12 @@
                          <td align="center">1234</td>
                       </tr>
 
-                      <tr :key="value.no" v-for="value in items">
-                        <td align="center">{{ value.no }}</td>
-                        <td><a href="#">{{ value.title }}</a></td>
-                        <td align="center">{{ value.writer }}</td>
-                        <td align="center">{{ value.dateCreated }}</td>
-                        <td align="center">{{ value.viewCount }}</td>
+                      <tr :key="writing.no" v-for="writing in freeBoard">
+                        <td align="center">{{ writing.no }}</td>
+                        <td><a href="#">{{ writing.title }}</a></td>
+                        <td align="center">{{ writing.writer }}</td>
+                        <td align="center">{{ writing.dateCreated }}</td>
+                        <td align="center">{{ writing.viewCount }}</td>
                       </tr>
                    </tbody>
                </table>
@@ -101,14 +101,14 @@ export default {
     //     path: `/board/free/detail/${item.content_id}`
     //   })
     // },
-    // writeContent(){
-    //    this.$router.push({
-    //      path: '/board/free/create'
-    //    })
-    // }
+    write () {
+      this.$router.push({
+        path: '/board/free/create'
+      })
+    }
   },
   computed: {
-    items () {
+    freeBoard () {
       return this.$store.state.freeBoard
     }
   }

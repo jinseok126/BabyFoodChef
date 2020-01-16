@@ -6,13 +6,10 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class JwtInterceptor  implements HandlerInterceptor {
+public class JwtInterceptor implements HandlerInterceptor {
 
     @Autowired
     private JwtService jwtService;
-
-    @Autowired
-    private  JwtProvider jwtProvider;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

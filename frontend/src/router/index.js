@@ -7,6 +7,7 @@ import MyPage from '@/components/MyPage'
 import Main from '@/components/Main'
 import FindId from '@/components/FindId'
 import FreeBoard from '@/components/FreeBoard'
+import CreateWriting from '@/components/CreateWriting'
 
 Vue.use(Router)
 
@@ -63,6 +64,11 @@ export default new Router({
       path: '/board/free',
       name: 'FreeBoard',
       component: FreeBoard
+    },
+    {
+      path: '/board/free/create',
+      name: 'CreateWriting',
+      component: CreateWriting
     }
   ]
 })

@@ -4,10 +4,10 @@
           <div id="header">
               <div class="container">
                   <div class="top_menu">
-                      <router-link to="login" v-show="isLogin===false">로그인</router-link>
-                      <router-link to="register" v-show="isLogin===false">회원가입</router-link>
-                      <router-link to="myPage" v-show="isLogin">마이페이지</router-link>
-                      <button v-show="isLogin" @click="logout">로그아웃</button>
+                    <a v-show="isLogin===false" type="button" @click="showLogin()">로그인</a>
+                    <router-link to="/register" v-show="isLogin===false">회원가입</router-link>
+                    <router-link to="/myPage" v-show="isLogin">마이페이지</router-link>
+                    <button v-show="isLogin" @click="logout">로그아웃</button>
                   </div>
                   <div class="gnb">
                     <h1><router-link to="/">이유식 요리사</router-link></h1>
@@ -53,19 +53,26 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import Modal from './modal/Modal.vue'
+
 export default {
   data () {
-    return {}
+    return {
+      showLoginModal: false
+    }
   },
   computed: {
     ...mapState(['isLogin', 'isLoginError'])
   },
   methods: {
     ...mapActions(['logout'])
+  },
+  components: {
+    Modal: Modal
   }
 }
 </script>
-<!--scoped = 해당 컴포넌트에만 style 적용 -->
+
 <style scoped>
     body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,fieldset,legend,label,p,address,table,dl,dt,dd,input,select,textarea,button,figure,figcaption{margin:0;padding:0;font-family:'Noto Sans KR Light',sans-serif}
 
