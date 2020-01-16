@@ -3,10 +3,10 @@
   <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
-        <!-- 버튼만 예쁘게 수정 바람 -->
-        <button class="modal-default-button" @click="$emit('close')">
-          X
-        </button>
+        <div class="modal-default-button">
+            <a @click="$emit('close')">닫기</a>
+        </div>
+
         <!-- 구분선 -->
         <div id="header">
           <h1><a href="#">이유식 요리사</a></h1>
@@ -20,11 +20,11 @@
                   <div class="login_wrap">
                     <p>
                       <label for="uid">아이디</label>
-                      <input type="text" id="uid" placeholder="아이디" size="30" />
+                      <input type="text" id="uid" placeholder="아이디" size="35" />
                     </p>
                     <p>
                       <label for="pwd">비밀번호</label>
-                      <input type="password" id="pwd" placeholder="비밀번호" size="30" />
+                      <input type="password" id="pwd" placeholder="비밀번호" size="35" />
                     </p>
                   </div>
                   <button type="">로그인</button>
@@ -109,8 +109,9 @@ export default {
 }
 
 #header h1 {
-  width: 600px;
+  width: 270px;
   height: 70px;
+  margin: 0 auto;
   text-indent: -9999px;
   background: url('/static/images/logo.jpg') no-repeat center;
   padding: 40px
@@ -124,12 +125,13 @@ export default {
 /*main*/
 #main {
   width: 700px;
+  margin:0 auto;
   border-bottom: 1px solid #eee;
   margin-bottom: 5px
 }
 
 .form_wrap {
-  width: 400px;
+  width: 370px;
   margin: 0 auto
 }
 
@@ -154,7 +156,7 @@ export default {
 
 .login input {
   border: 1px solid #aeaeae;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Noto Sans KR Regular', sans-serif;
   padding: 10px;
   margin-bottom: 10px
@@ -163,11 +165,11 @@ export default {
 .login button {
   background: #85b729;
   color: #fff;
-  width: 355px;
+  width: 357px;
   height: 50px;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Noto Sans KR Regular', sans-serif;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .login button:hover {
@@ -208,13 +210,13 @@ export default {
 }
 
 .join button {
-  width: 150px;
-  height: 50px;
+  width: 130px;
+  height: 45px;
   background: #ffa200;
   color: #fff;
   font-family: 'Noto Sans KR Regular', sans-serif;
   font-size: 16px;
-  margin-bottom: 50px
+  margin-bottom: 50px;
 }
 
 .join button:hover {
@@ -248,4 +250,7 @@ export default {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+.modal-default-button{width:25px;height:25px;text-indent:-9999px;background:url('/static/images/close_icon.jpg') no-repeat}
+.modal-default-button a{display:block;height:100%;cursor:pointer;}
 </style>

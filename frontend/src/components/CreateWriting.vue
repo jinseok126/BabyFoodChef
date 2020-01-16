@@ -9,7 +9,7 @@
                       </ul>
                   </div>
                   <table class="wrtie_form" width="1200px" cellpadding="0" cellspacing="0">
-                      <caption>게시판 글쓰기</caption>
+                      <caption class="page_title">글 작성하기</caption>
                       <tbody>
                           <tr>
                               <th class="title">제목</th>
@@ -52,17 +52,17 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style>
   #main{clear:both}
   .gnb_sub{height:50px;width:1200px;background:#f8ffeb;margin:0 auto;font-size:16px}
   .gnb_sub li a{float:left;color:#b3b3b3;padding:10px 20px}
   .gnb_sub .message_board a{color:#85b729;font-family:'Noto Sans KR Regular',sans-serif;}
   .wrtie_form{border:1px solid #eee;margin-bottom:20px}
-  .wrtie_form caption{position:absolute;top:-9999px;left:-9999px}
+  .wrtie_form .page_title{font-size:30px;font-family:'Noto Sans KR Regular',sans-serif;padding:20px 0}
   .wrtie_form .title{position:absolute;top:-9999px;left:-9999px}
   .wrtie_form .title_area{border-bottom:1px solid #eee}
   .wrtie_form .title_space{padding:10px}
-  .wrtie_form .select_type{width:200px;height:40px;padding:10px;border-right:1px solid #eee}
+  .wrtie_form .select_type{width:200px;height:40px;padding:10px;border-right:1px solid #eee;}
   .wrtie_form .contents{position:absolute;top:-9999px;left:-9999px}
   .wrtie_form .contents_area textarea{border:none;padding:10px}
   .wrtie_form .select_file{position:absolute;top:-9999px;left:-9999px}
