@@ -116,12 +116,13 @@ export default {
 </script>
 <style scoped>
   /*버튼 그림자,a태그 line*/
+  .container{width:1200px;margin:0 auto}
   .gnb_sub{height:50px;width:1200px;background:#f8ffeb;margin:0 auto;font-size:16px;}
   .gnb_sub li a{float:left;color:#b3b3b3;padding:10px 20px}
   .gnb_sub .message_board a{color:#85b729;font-family:'Noto Sans KR Regular',sans-serif;}
   .main{clear:both}
   .notice_sub_title{text-align:center}
-  .notice_sub_title h3{font-size:30px;font-family:'Noto Sans KR Regular',sans-serif;padding:20px 0}
+  .notice_sub_title h3{font-size:30px;padding:20px 0}
   .notice_sub_title p{font-size:15px;padding-bottom:20px}
 
   .search_form legend{position:absolute;left:-9999px;top:-9999px}
@@ -129,10 +130,11 @@ export default {
   .search_keyword select{width:180px;padding:9.5px;margin-right:10px;border:1px solid #ddd;font-size:15px}
   .search_keyword input{padding:10px;border:1px solid #ddd;font-size:15px}
   .search_keyword button{width:90px;background:#85b729;color:#eee;padding:10px;font-size:15px;border-radius:5px}
+  .search_keyword button:hover{background:#6c9f0d}
   .option{position:relative;margin-bottom:10px}
   .option select{width:100px;padding:10px;border:1px solid #ddd;margin-right:5px}
   .option button{position:absolute;left:1100px;width:100px;background:#ffa300;border-radius:5px;padding:11px;color:#fff}
-
+  .option button:hover{background:#ef8700}
   .board_list{border-collapse:collapse;border-spacing:1px;text-align:center;line-height:1.5;border:1px solid #ddd;margin-bottom:10px}
   .board_list caption{position:absolute;left:-9999px;top:-9999px}
   .board_list thead td{font-family:'Noto Sans KR Regular',sans-serif;font-size:14px;padding:10px;border-bottom:1px solid #ddd}
