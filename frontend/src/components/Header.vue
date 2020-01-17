@@ -4,9 +4,9 @@
           <div id="header">
               <div class="container">
                   <div class="top_menu">
-                    <a v-show="isLogin===false" type="button" @click="showLogin()">로그인</a>
-                    <router-link to="/register" v-show="isLogin===false">회원가입</router-link>
-                    <router-link to="/myPage" v-show="isLogin">마이페이지</router-link>
+                    <a class="log_in" v-show="isLogin===false" @click="showLogin()">로그인</a>
+                    <router-link class="register" to="/register" v-show="isLogin===false">회원가입</router-link>
+                    <router-link class="log_out" to="/myPage" v-show="isLogin">마이페이지</router-link>
                     <button v-show="isLogin" @click="logout">로그아웃</button>
                   </div>
                   <div class="gnb">
@@ -78,23 +78,16 @@ export default {
 </script>
 
 <style scoped>
-    body,h1,h2,h3,h4,h5,h6,p,div,header,main,footer,section,article,nav,ul,li,form,fieldset,legend,label,p,address,table,dl,dt,dd,input,select,textarea,button,figure,figcaption{margin:0;padding:0;font-family:'Noto Sans KR Light',sans-serif}
-
-    ul,li{list-style:none}
-    a{text-decoration:none;color:#222}
-    a:hover{color:#2698cb}
-    address{font-style:normal}
-    form,input,button{vertical-align:middle}
-    button{cursor:pointer}
-    img,fieldset{border:none}
-    input{border:none;outline:none}
-
-    body,input,textarea,select,button,table{font-family:"Noto Sana KR",sans-serif;font-size:13px;line-height:1.5;letter-spacing:-1px;direction:ltr}
      /*header*/
      #header{height:150px;background:url('/static/images/top_bg.jpg') repeat-x}
      .container{width:1200px;margin:0 auto}
      .top_menu{text-align:right;height:42px;}
      .top_menu>a{display:inline-block;color:#fff;font-size:15px;line-height:40px;padding-right:30px}
+     .top_menu .log_in{cursor:pointer;}
+     .top_menu .log_in:hover{text-decoration:underline;}
+     .top_menu .register:hover{text-decoration:underline;}
+     .top_menu .log_out:hover{text-decoration:underline;}
+     .top_menu button:hover{text-decoration:underline;}
 
      /*gnb*/
      .gnb{width:1200px;position:relative;z-index:10}
