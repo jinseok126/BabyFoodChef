@@ -4,7 +4,7 @@
 
 <mapper namespace="com.babyfoodchef.mapper.BoardMapper">
     <select id="freeBoardFindAll" resultType="FreeBoardDto">
-        SELECT no, writer, title, contents, date_format(dateCreated, '%Y-%m-%d') dateCreated, viewCount
+        SELECT no, writer, title, contents, date_format(createdDate, '%Y-%m-%d') createdDate, viewCount
         FROM free_board
     </select>
 
