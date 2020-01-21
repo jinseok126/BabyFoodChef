@@ -73,7 +73,6 @@
                         <td align="center">{{ writing.no }}</td>
                         <td><a href="#">{{ writing.title }}</a></td>
                         <td align="center">{{ writing.writer }}</td>
-                        <td align="center">{{ writing.dateCreated }}</td>
                         <td align="center">{{ writing.viewCount }}</td>
                       </tr>
                    </tbody>

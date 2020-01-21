@@ -12,7 +12,8 @@ export default new Vuex.Store({
     memberInfo: null,
     isLogin: false,
     isLoginError: false,
-    isTrustToken: false
+    isTrustToken: false,
+    isShowLoginModal: false
   },
   mutations: {
     loadFreeBoard (state) {
@@ -24,6 +25,7 @@ export default new Vuex.Store({
       state.isLogin = true
       state.isLoginError = false
       state.memberInfo = payload
+      state.isShowLoginModal = false
     },
     loginError (state) {
       state.isLogin = false
@@ -33,6 +35,12 @@ export default new Vuex.Store({
       state.isLogin = false
       state.isLoginError = false
       state.memberInfo = null
+    },
+    showLoginModal (state) {
+      state.isShowLoginModal = true
+    },
+    closeLoginModal (state) {
+      state.isShowLoginModal = false
     }
   },
   actions: {
@@ -45,7 +53,6 @@ export default new Vuex.Store({
         } else {
           localStorage.setItem('accessToken', token)
           dispatch('getMemberInfo')
-          router.push('/', () => {})
         }
       })
     },

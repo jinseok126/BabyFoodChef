@@ -4,10 +4,8 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-default-button">
-            <a @click="$emit('close')">닫기</a>
+          <a @click="$emit('close')">닫기</a>
         </div>
-
-        <!-- 구분선 -->
         <div id="header">
           <h1><a href="#">이유식 요리사</a></h1>
         </div>
@@ -18,16 +16,18 @@
                 <legend>로그인</legend>
                 <div class="login">
                   <div class="login_wrap">
+                    <!-- 경고메세지 디자인 수정좀... -->
+                    <p v-show="isLoginError">아이디와 비밀번호를 확인하세요.</p>
                     <p>
                       <label for="uid">아이디</label>
-                      <input type="text" id="uid" placeholder="아이디" size="35" />
+                      <input type="text" id="uid" placeholder="아이디" size="35" v-model="id" />
                     </p>
                     <p>
                       <label for="pwd">비밀번호</label>
-                      <input type="password" id="pwd" placeholder="비밀번호" size="35" />
+                      <input type="password" id="pwd" placeholder="비밀번호" size="35" v-model="password" />
                     </p>
                   </div>
-                  <button type="">로그인</button>
+                  <button type="button" @click="login({id, password})">로그인</button>
                 </div>
                 <p class="uid_save">
                   <input type="checkbox" id="uid_save" />
@@ -125,7 +125,7 @@ export default {
 /*main*/
 #main {
   width: 700px;
-  margin:0 auto;
+  margin: 0 auto;
   border-bottom: 1px solid #eee;
   margin-bottom: 5px
 }
@@ -251,6 +251,16 @@ export default {
   transform: scale(1.1);
 }
 
-.modal-default-button{width:25px;height:25px;text-indent:-9999px;background:url('/static/images/close_icon.jpg') no-repeat}
-.modal-default-button a{display:block;height:100%;cursor:pointer;}
+.modal-default-button {
+  width: 25px;
+  height: 25px;
+  text-indent: -9999px;
+  background: url('/static/images/close_icon.jpg') no-repeat
+}
+
+.modal-default-button a {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
 </style>

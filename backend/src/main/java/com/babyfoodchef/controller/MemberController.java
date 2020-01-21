@@ -30,12 +30,14 @@ public class MemberController {
         TokenDto tokenDto = jwtService.createTokenDto(member);
         member.setToken(tokenDto.getRefreshToken());
         memberService.update(member);
+        System.out.println(tokenDto.getAccessToken());
         return tokenDto.getAccessToken();
     }
     @GetMapping("/findById/{id}")
     public String findById(@PathVariable String id){
         //헤더에 닉네임을 보냄
         //나중에 보낼게 더 있으면 토큰에다가 추가해서 보내기.
+        System.out.println(id);
         MemberDto member = memberService.findById(id);
         return member.getNickName();
     }

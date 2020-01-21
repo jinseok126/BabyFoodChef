@@ -4,10 +4,11 @@
           <div id="header">
               <div class="container">
                   <div class="top_menu">
-                    <a class="log_in" v-show="isLogin===false" @click="showLogin()">로그인</a>
+                    <a class="log_in" v-show="isLogin===false" @click="showLoginModal">로그인</a>
                     <router-link class="register" to="/register" v-show="isLogin===false">회원가입</router-link>
+                    <!-- 마이페이지 클래스명 수정 -->
                     <router-link class="log_out" to="/myPage" v-show="isLogin">마이페이지</router-link>
-                    <button v-show="isLogin" @click="logout">로그아웃</button>
+                    <a class="log_out" v-show= "isLogin" @click="logout">로그아웃</a>
                   </div>
                   <div class="gnb">
                     <h1><router-link to="/">이유식 요리사</router-link></h1>
@@ -48,28 +49,25 @@
               <div class="gnb_bg"></div>
           </div>
       </div>
-      <LoginModal v-if="showLoginModal" @close="showLoginModal = false"/>
+      <LoginModal v-if="isShowLoginModal && !isLogin" @close="closeLoginModal"/>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapMutations } from 'vuex'
 import LoginModal from './modal/LoginModal.vue'
 
 export default {
   data () {
     return {
-      showLoginModal: false
     }
   },
   computed: {
-    ...mapState(['isLogin', 'isLoginError'])
+    ...mapState(['isLogin', 'isLoginError', 'isShowLoginModal'])
   },
   methods: {
     ...mapActions(['logout']),
-    showLogin () {
-      this.showLoginModal = !this.showLoginModal
-    }
+    ...mapMutations(['showLoginModal', 'closeLoginModal'])
   },
   components: {
     LoginModal
@@ -83,7 +81,7 @@ export default {
      .container{width:1200px;margin:0 auto}
      .top_menu{text-align:right;height:42px;}
      .top_menu>a{display:inline-block;color:#fff;font-size:15px;line-height:40px;padding-right:30px}
-     .top_menu .log_in{cursor:pointer;}
+     .top_menu {cursor:pointer;}
      .top_menu .log_in:hover{text-decoration:underline;}
      .top_menu .register:hover{text-decoration:underline;}
      .top_menu .log_out:hover{text-decoration:underline;}

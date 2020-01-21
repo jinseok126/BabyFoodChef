@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '../store'
 import Register from '@/components/Register'
-import Login from '@/components/Login'
 import MyPage from '@/components/MyPage'
 import Main from '@/components/Main'
 import FindId from '@/components/FindId'
@@ -41,12 +40,6 @@ export default new Router({
       name: 'Register',
       beforeEnter: rejectAuthUser,
       component: Register
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      beforeEnter: rejectAuthUser,
-      component: Login
     },
     {
       path: '/myPage',
