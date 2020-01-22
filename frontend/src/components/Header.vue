@@ -5,9 +5,8 @@
               <div class="container">
                   <div class="top_menu">
                     <a class="log_in" v-show="isLogin===false" @click="showLoginModal">로그인</a>
-                    <router-link class="register" to="/register" v-show="isLogin===false">회원가입</router-link>
-                    <!-- 마이페이지 클래스명 수정 -->
-                    <router-link class="log_out" to="/myPage" v-show="isLogin">마이페이지</router-link>
+                    <router-link class="_register" to="/register" v-show="isLogin===false">회원가입</router-link>
+                    <router-link class="my_page" to="/myPage" v-show="isLogin">마이페이지</router-link>
                     <a class="log_out" v-show= "isLogin" @click="logout">로그아웃</a>
                   </div>
                   <div class="gnb">
@@ -82,10 +81,8 @@ export default {
      .top_menu{text-align:right;height:42px;}
      .top_menu>a{display:inline-block;color:#fff;font-size:15px;line-height:40px;padding-right:30px}
      .top_menu {cursor:pointer;}
-     .top_menu .log_in:hover{text-decoration:underline;}
-     .top_menu .register:hover{text-decoration:underline;}
-     .top_menu .log_out:hover{text-decoration:underline;}
-     .top_menu button:hover{text-decoration:underline;}
+     .top_menu a:hover{text-decoration:underline;}
+     .top_menu router-link:hover{text-decoration:underline;}
 
      /*gnb*/
      .gnb{width:1200px;position:relative;z-index:10}

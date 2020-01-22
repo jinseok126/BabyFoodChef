@@ -16,8 +16,6 @@
                 <legend>로그인</legend>
                 <div class="login">
                   <div class="login_wrap">
-                    <!-- 경고메세지 디자인 수정좀... -->
-                    <p v-show="isLoginError">아이디와 비밀번호를 확인하세요.</p>
                     <p>
                       <label for="uid">아이디</label>
                       <input type="text" id="uid" placeholder="아이디" size="35" v-model="id" />
@@ -27,6 +25,7 @@
                       <input type="password" id="pwd" placeholder="비밀번호" size="35" v-model="password" />
                     </p>
                   </div>
+                  <p class="loginError_msg" v-show="isLoginError">아이디와 비밀번호를 확인하세요.</p>
                   <button type="button" @click="login({id, password})">로그인</button>
                 </div>
                 <p class="uid_save">
@@ -139,6 +138,12 @@ export default {
   position: absolute;
   left: -9999px;
   top: -9999px
+}
+
+.loginError_msg{
+  color:red;
+  font-size:14px;
+  margin-bottom:10px
 }
 
 /*.form_wrap{width:1200px;margin:0 auto}*/
