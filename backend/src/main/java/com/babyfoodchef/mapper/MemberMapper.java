@@ -1,7 +1,8 @@
 package com.babyfoodchef.mapper;
 
-import com.babyfoodchef.dto.MemberDto;
 import org.apache.ibatis.annotations.Mapper;
+
+import com.babyfoodchef.dto.MemberDto;
 
 @Mapper
 public interface MemberMapper {

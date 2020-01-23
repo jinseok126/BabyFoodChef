@@ -104,7 +104,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .main{clear:both}
   .container{width:1200px;margin:0 auto}
   .gnb_sub{height:50px;width:1200px;background:#f8ffeb;margin:0 auto;font-size:16px;}

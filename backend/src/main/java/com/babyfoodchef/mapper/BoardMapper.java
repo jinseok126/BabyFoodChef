@@ -1,9 +1,10 @@
 package com.babyfoodchef.mapper;
 
-import com.babyfoodchef.dto.FreeBoardDto;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
+import com.babyfoodchef.dto.FreeBoardDto;
 
 @Mapper
 public interface BoardMapper {

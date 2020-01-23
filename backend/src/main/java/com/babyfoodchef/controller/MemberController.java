@@ -1,12 +1,17 @@
 package com.babyfoodchef.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+
 import com.babyfoodchef.dto.MemberDto;
 import com.babyfoodchef.dto.TokenDto;
 import com.babyfoodchef.jwt.JwtService;
 import com.babyfoodchef.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @RequestMapping("/member")
@@ -26,33 +31,36 @@ public class MemberController {
     @PostMapping("/login")
     public String login(@RequestBody MemberDto memberDto) {
         MemberDto member = memberService.findByIdAndPw(memberDto);
-        if (member==null) return "";
+        if (member == null) {
+            return "";
+        }
         TokenDto tokenDto = jwtService.createTokenDto(member);
         member.setToken(tokenDto.getRefreshToken());
         memberService.update(member);
-        System.out.println(tokenDto.getAccessToken());
         return tokenDto.getAccessToken();
     }
+
     @GetMapping("/findById/{id}")
-    public String findById(@PathVariable String id){
-        //헤더에 닉네임을 보냄
-        //나중에 보낼게 더 있으면 토큰에다가 추가해서 보내기.
-        System.out.println(id);
+    public String findById(@PathVariable String id) {
         MemberDto member = memberService.findById(id);
         return member.getNickName();
     }
 
     @GetMapping("/findByEmail/{email}")
-    public String findByEmail(@PathVariable String email){
+    public String findByEmail(@PathVariable String email) {
         MemberDto member = memberService.findByEmail(email);
-        if(member == null) return "";
+        if (member == null) {
+            return "";
+        }
         return member.getId();
     }
 
     @PostMapping("/findByIdAndEmail")
     public Boolean findByIdAndEmail(@RequestBody MemberDto memberDto) {
         MemberDto member = memberService.findByIdAndEmail(memberDto);
-        if (member==null) return false;
+        if (member == null) {
+            return false;
+        }
         return true;
     }
 }

@@ -1,10 +1,11 @@
 package com.babyfoodchef.config;
 
-import com.babyfoodchef.jwt.JwtInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.babyfoodchef.jwt.JwtInterceptor;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -13,7 +14,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public JwtInterceptor jwtInterceptor() {
         return new JwtInterceptor();
     }
-    //검사할 경로 설정
+
+    // 검사할 경로 설정
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor()).addPathPatterns("/token/validateToken");
     }

@@ -5,11 +5,8 @@ import java.util.Date;
 
 import javax.annotation.PostConstruct;
 
-import com.babyfoodchef.dto.MemberDto;
-import com.babyfoodchef.dto.TokenDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
@@ -18,6 +15,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import lombok.RequiredArgsConstructor;
 
+import com.babyfoodchef.dto.MemberDto;
+import com.babyfoodchef.dto.TokenDto;
+
 @RequiredArgsConstructor
 @Component
 public class JwtProvider {
@@ -25,8 +25,8 @@ public class JwtProvider {
     @Value("spring.jwt.secret")
     private String secretKey;
     // 1000L * 60 * 60 => 1시간
-    private long accessTokenValidMilisecond = 1000L * 60 * 60;
-    private long refreshTokenValidMilisecond = 1000L * 60 * 60;
+    private long accessTokenValidMillisecond = 1000L * 60 * 60;
+    private long refreshTokenValidMillisecond = 1000L * 60 * 60;
 
     @PostConstruct
     protected void init() {
@@ -42,7 +42,7 @@ public class JwtProvider {
                 .setHeaderParam("typ", "JWT")
                 .setClaims(claims) // 데이터
                 .setIssuedAt(now) //발행 일자
-                .setExpiration(new Date(now.getTime()+accessTokenValidMilisecond)) //유효 시간
+                .setExpiration(new Date(now.getTime()+accessTokenValidMillisecond)) //유효 시간
                 .signWith(SignatureAlgorithm.HS256, secretKey) //사인키
                 .compact();
 
@@ -50,37 +50,33 @@ public class JwtProvider {
                 .setHeaderParam("typ", "JWT")
                 .setClaims(claims) // 데이터
                 .setIssuedAt(now) //발행 일자
-                .setExpiration(new Date(now.getTime()+refreshTokenValidMilisecond)) //유효 시간
+                .setExpiration(new Date(now.getTime()+refreshTokenValidMillisecond)) //유효 시간
                 .signWith(SignatureAlgorithm.HS256, secretKey) //사인키
                 .compact();
 
-        TokenDto tokenDto = new TokenDto();
-        tokenDto.setAccessToken(accessToken);
-        tokenDto.setRefreshToken(refreshToken);
-
-        return tokenDto;
+        return new TokenDto(accessToken, refreshToken);
     }
 
     public String validateToken(String token) {
-        String msg = "";
+        String resultMessage = "";
 
         if(token == null) {
-            msg = "not token";
+            resultMessage = "not token";
         } else {
             try {
                 Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
                 if(!claims.getBody().getExpiration().before(new Date())) {
-                    msg = "success";
+                    resultMessage = "success";
                 }
             } catch (ExpiredJwtException e) {
-                msg = "expiredTokenDate";	// 토큰 만료
+                resultMessage = "expiredTokenDate";	    // 토큰 만료
             } catch (SignatureException e) {
-                msg = "wrongSign";			// 토큰의 서명 검증이 위조되거나 문제가 생긴 경우
+                resultMessage = "wrongSign";			// 토큰의 서명 검증이 위조되거나 문제가 생긴 경우
             } catch (Exception e) {
-                msg = "error";
+                resultMessage = "error";
             }
         }
-        return msg;
+        return resultMessage;
     }
 
 }

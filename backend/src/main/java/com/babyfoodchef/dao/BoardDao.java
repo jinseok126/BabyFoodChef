@@ -1,8 +1,8 @@
 package com.babyfoodchef.dao;
 
-import com.babyfoodchef.dto.FreeBoardDto;
-
 import java.util.List;
+
+import com.babyfoodchef.dto.FreeBoardDto;
 
 public interface BoardDao {
     List<FreeBoardDto> freeBoardFindAll();

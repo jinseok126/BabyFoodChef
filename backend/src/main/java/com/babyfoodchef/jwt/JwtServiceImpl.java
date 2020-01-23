@@ -1,13 +1,14 @@
 package com.babyfoodchef.jwt;
 
-import com.babyfoodchef.dto.MemberDto;
-import com.babyfoodchef.dto.TokenDto;
-import com.babyfoodchef.service.MemberService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.babyfoodchef.dto.MemberDto;
+import com.babyfoodchef.dto.TokenDto;
+import com.babyfoodchef.service.MemberService;
 
 @Service
 public class JwtServiceImpl implements JwtService {
@@ -23,27 +24,21 @@ public class JwtServiceImpl implements JwtService {
     }
 
     public String checkToken(HttpServletResponse response, HttpServletRequest request, String beforeToken) {
-
         String token = null;
-
         if(beforeToken != null) {
             String checkValid = jwtProvider.validateToken(beforeToken);
-
             // access token expired
             if(checkValid == "expiredTokenDate") {
                 String id = request.getHeader("MemberId");
                 MemberDto member = memberService.findById(id);
-
                 // refresh token expired
                 String boolRefreshToken = jwtProvider.validateToken(member.getToken());
                 System.out.println("boolRefreshToken: "+boolRefreshToken);
                 if(boolRefreshToken == "expiredTokenDate") {
                     response.setHeader("TokenValid", "expired");
-
 //                    // 만료된 토큰일 경우 refresh 토큰도 없애기
 //                    member.setToken(null);
 //                    memberService.update(member);
-
 //              access token expired and refresh token active
                 } else if(boolRefreshToken == "success") {
                     // 재갱신

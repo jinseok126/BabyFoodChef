@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/token")
 public class TokenController {
 
-    //토큰 검증 WebMvcConfig에 의해 JwtInterceptor로 간다.
+    //토큰 검증, WebMvcConfig에 의해 JwtInterceptor로 간다.
     @GetMapping("/validateToken")
     public void validateToken() {
     }
