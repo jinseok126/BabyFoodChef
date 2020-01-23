@@ -37,7 +37,7 @@
                 </p>
                 <div class="join">
                   <p>회원이 아니신가요? 지금 가입하시고 이유의 다양한 서비스를 이용해보세요!</p>
-                  <button type="">회원가입</button>
+                  <button type="button" @click="moveRegister">회원가입</button>
                 </div>
               </fieldset>
             </form>
@@ -66,7 +66,13 @@ export default {
     ...mapState(['isLoginError'])
   },
   methods: {
-    ...mapActions(['login'])
+    ...mapActions(['login']),
+    moveRegister () {
+      this.$emit('close')
+      this.$router.push({
+        path: '/register'
+      })
+    }
   }
 }
 </script>

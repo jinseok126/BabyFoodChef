@@ -41,6 +41,7 @@ export default new Vuex.Store({
     },
     closeLoginModal (state) {
       state.isShowLoginModal = false
+      state.isLoginError = false
     }
   },
   actions: {
