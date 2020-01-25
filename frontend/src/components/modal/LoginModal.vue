@@ -26,18 +26,21 @@
                     </p>
                   </div>
                   <p class="loginError_msg" v-show="isLoginError">아이디와 비밀번호를 확인하세요.</p>
-                  <button type="button" @click="login({id, password})">로그인</button>
                 </div>
                 <p class="uid_save">
                   <input type="checkbox" id="uid_save" />
                   <label for="uid_save">아이디 저장</label>
                 </p>
-                <p class="find_id">
-                  <a href="#">아이디/비밀번호 찾기</a>
+                <p class="find_uid">
+                  <a href="#">아이디</a>/
+                  <a href="#">비밀번호 찾기</a>
                 </p>
+                <button class="login_button" type="button" @click="login({id, password})">로그인</button>
                 <div class="join">
-                  <p>회원이 아니신가요? 지금 가입하시고 이유의 다양한 서비스를 이용해보세요!</p>
-                  <button type="button" @click="moveRegister">회원가입</button>
+                  <span>
+                    아직 회원이 아니신가요?
+                    <a href="#" @click="moveRegister">회원가입 하기</a>
+                  </span>
                 </div>
               </fieldset>
             </form>
@@ -173,7 +176,7 @@ export default {
   margin-bottom: 10px
 }
 
-.login button {
+.login_button {
   background: #85b729;
   color: #fff;
   width: 357px;
@@ -183,7 +186,7 @@ export default {
   margin-bottom: 10px;
 }
 
-.login button:hover {
+.login_button:hover {
   background: #6c9f0d
 }
 
@@ -199,39 +202,35 @@ export default {
   font-family: 'Noto Sans KR Regular', sans-serif
 }
 
-.find_id {
+.find_uid {
   font-size: 15px;
   float: left;
   font-family: 'Noto Sans KR Regular', sans-serif;
   margin-bottom: 15px
 }
 
-.find_id a:hover {
+.find_uid a:hover {
   color: #85b729
 }
 
 .join {
-  clear: both
+  clear: both;
+  width:250px;
+  margin:10px auto 25px;
 }
 
-.join p {
-  font-size: 14px;
-  color: #939393;
-  margin-bottom: 5px
-}
-
-.join button {
-  width: 130px;
-  height: 45px;
-  background: #ffa200;
-  color: #fff;
-  font-family: 'Noto Sans KR Regular', sans-serif;
+.join span {
   font-size: 16px;
-  margin-bottom: 50px;
+  color: #939393;
 }
 
-.join button:hover {
-  background: #ef8700;
+.join span a {
+  font-family: 'Noto Sans KR Regular', sans-serif;
+  color:#ffa200;
+}
+
+.join span a:hover {
+  text-decoration:underline;
 }
 
 .copyright {
