@@ -12,6 +12,7 @@
            <div class="_hd_writing">
                <h2>
                     <a href="#">집나간 며느리도 돌아오는 우리아이 이유식</a>
+                    <span class="_border">|</span>
                     <span class="category">이유식</span>
                     <span class="_date">2020.01.27</span>
                </h2>
@@ -110,5 +111,10 @@
   .gnb_sub{height:50px;width:1200px;background:#f8ffeb;margin:0 auto;font-size:16px;}
   .gnb_sub li a{float:left;color:#b3b3b3;padding:10px 20px}
   .gnb_sub .message_board a{color:#85b729;font-family:'Noto Sans KR Regular',sans-serif;}
+  ._wrapper{border:1px solid #eee;}
+  ._hd_writing h2{font-size:15px;margin:8px;border-bottom-style:dashed;border-bottom-width:1px;border-color:#a4a4a4;padding-bottom:5px}
+  ._hd_writing h2 a{font-family:'Noto Sans KR Regular',sans-serif;color:#717070;margin-right:2px;}
+  ._hd_writing span{font-family:'Noto Sans KR Thin',sans-serif;color:#696868;margin-right:2px;}
+  ._hd_writing ._date{float:right}
 
 </style>
