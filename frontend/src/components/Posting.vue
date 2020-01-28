@@ -122,6 +122,8 @@
   ._bd_writing{margin:20px}
   ._contents{height:300px;}
   .writing_info{color:#646363}
+  .writing_info b{padding:2px}
+  .info_border{padding:2px}
 
 
 </style>
