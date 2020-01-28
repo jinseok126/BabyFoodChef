@@ -112,9 +112,16 @@
   .gnb_sub li a{float:left;color:#b3b3b3;padding:10px 20px}
   .gnb_sub .message_board a{color:#85b729;font-family:'Noto Sans KR Regular',sans-serif;}
   ._wrapper{border:1px solid #eee;}
-  ._hd_writing h2{font-size:15px;margin:8px;border-bottom-style:dashed;border-bottom-width:1px;border-color:#a4a4a4;padding-bottom:5px}
+  ._hd_writing{margin:20px}
+  ._hd_writing h2{font-size:15px;border-bottom-style:dashed;border-bottom-width:1px;border-color:rgba(164,164,164,.6);padding-bottom:15px;margin-bottom:10px}
   ._hd_writing h2 a{font-family:'Noto Sans KR Regular',sans-serif;color:#717070;margin-right:2px;}
   ._hd_writing span{font-family:'Noto Sans KR Thin',sans-serif;color:#696868;margin-right:2px;}
   ._hd_writing ._date{float:right}
+  .writer_info{height:25px;padding-left:30px;background:url(../images/user_icon.jpg) no-repeat;}
+  .writer_info a{color:#686868;}
+  ._bd_writing{margin:20px}
+  ._contents{height:300px;}
+  .writing_info{color:#646363}
+
 
 </style>
