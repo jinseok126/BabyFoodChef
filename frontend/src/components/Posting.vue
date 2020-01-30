@@ -41,12 +41,11 @@
            <div class="commend_wrapper">
                <div class="commend_bd">
                    <div class="user_image"><img src="" alt="" /></div>
-                   <div class="commend_contents">
-                       <div>
+                   <div class="commend_container">
+                       <div class="user_image"></div>
+                       <div class="commend_contents">
                            <a href="#">럭스오브레전드</a>
                            <span>2020.01.28. 2:00</span>
-                       </div>
-                       <div>
                            <p>안녕하세요. 비법이 먼가요???</p>
                        </div>
                    </div>
@@ -111,6 +110,7 @@
   .gnb_sub{height:50px;width:1200px;background:#f8ffeb;margin:0 auto;font-size:16px;}
   .gnb_sub li a{float:left;color:#b3b3b3;padding:10px 20px}
   .gnb_sub .message_board a{color:#85b729;font-family:'Noto Sans KR Regular',sans-serif;}
+
   ._wrapper{border:1px solid #eee;}
   ._hd_writing{margin:20px}
   ._hd_writing h2{font-size:15px;border-bottom-style:dashed;border-bottom-width:1px;border-color:rgba(164,164,164,.6);padding-bottom:15px;margin-bottom:10px}
@@ -125,5 +125,11 @@
   .writing_info b{padding:2px}
   .info_border{padding:2px}
 
+  .commend_wrapper{width:1175px;background:#f7f7f5;margin:0 auto 12.5px;padding:10px}
+  .user_image img{float:left}
+  .commend_container{}
+  .commend_contents a{color:#686868;font-family:'Noto Sans KR Regular',sans-serif;padding:10px;}
+  .commend_contents span{text-align:right;color:#b3b3b3}
+  .commend_contents p{}
 
 </style>
