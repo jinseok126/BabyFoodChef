@@ -40,7 +40,7 @@
            </div>
            <div class="commend_wrapper">
                <div class="commend_bd">
-                   <div class="user_image"><img src="" alt="" /></div>
+                   <div class="user_image"><img src="/static/images/user_image_icon.png" alt="" /></div>
                    <div class="commend_container">
                        <div class="user_image"></div>
                        <div class="commend_contents">
@@ -52,7 +52,7 @@
                </div>
                <div class="commend_ft">
                    <div class="commend_form">
-                       <textarea name="" id="" cols="100" rows="3"></textarea>
+                       <textarea name="" id="" cols="165" rows="3"></textarea>
                        <input type="button" value="등록" />
                    </div>
                </div>
@@ -130,6 +130,10 @@
   .commend_container{}
   .commend_contents a{color:#686868;font-family:'Noto Sans KR Regular',sans-serif;padding:10px;}
   .commend_contents span{text-align:right;color:#b3b3b3}
-  .commend_contents p{}
+  .commend_contents p{padding:5px 0}
+  .commend_ft{clear:both;overflow:hidden}
+  .commend_form textarea{float:left; margin-right:10px;padding:10px;border:1px solid #ddd}
+  .commend_form input{width:90px;height:78px;float:left;background-color:#fff;border:1px solid #c9c9c9}
+  ._option{clear:both}
 
 </style>
